@@ -1,10 +1,11 @@
-<!doctype html>
 <html lang="en" class="scroll-smooth">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>NAZIR NOORI — UI & Front-End Architecture</title>
+<title>Nazir Noori — UI & Front-End Architecture</title>
 <meta name="description" content="Portfolio of Nazir Noori, specialized in fluid layout systems and pristine digital mechanics." />
+
+<link id="dynamicFavicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%23f8f7f4%22%2F%3E%3Ctext%20x%3D%228%22%20y%3D%2223%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%20font-weight%3D%22800%22%20fill%3D%22%23131314%22%3EN%3C%2Ftext%3E%3C%2Fsvg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,7 +20,7 @@
       extend: {
         colors: {
           lux: {
-            linen: '#f8f7f4',      
+            linen: '#f8f7f4',     
             obsidian: '#09090b',   
             charcoal: '#131314',   
             chalk: '#f3f3f5',      
@@ -312,7 +313,7 @@
     mobileMenu: document.getElementById('mobileMenu'), menuClose: document.getElementById('menuClose'), year: document.getElementById('year'),
     modal: document.getElementById('projectModal'), modalClose: document.getElementById('modalClose'), modalType: document.getElementById('modalType'),
     modalTitle: document.getElementById('modalTitle'), modalDesc: document.getElementById('modalDesc'), modalTags: document.getElementById('modalTags'),
-    modalVisit: document.getElementById('modalVisit'), modalCode: document.getElementById('modalCode')
+    modalVisit: document.getElementById('modalVisit'), modalCode: document.getElementById('modalCode'), dynamicFavicon: document.getElementById('dynamicFavicon')
   };
 
   let activeIdx = -1;
@@ -322,6 +323,43 @@
     sun: `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.07" x2="5.64" y2="17.66"/><line x1="18.36" y1="6.34" x2="19.78" y2="4.22"/></svg>`,
     moon: `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`
   };
+
+  // Dynamic Favicon sync based on Theme
+  const syncFavicon = () => {
+    if (!DOM.dynamicFavicon) return;
+    const isDark = document.documentElement.classList.contains('dark');
+    const bg = isDark ? '%2309090b' : '%23f8f7f4';
+    const fg = isDark ? '%23f3f3f5' : '%23131314';
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="${bg}"/><text x="8" y="23" font-family="Arial" font-size="20" font-weight="800" fill="${fg}">N</text></svg>`;
+    DOM.dynamicFavicon.href = `data:image/svg+xml,${svg}`;
+  };
+
+  const syncThemeUI = () => {
+    const isDark = document.documentElement.classList.contains('dark');
+    if (DOM.theme) DOM.theme.innerHTML = isDark ? SVGS.sun : SVGS.moon;
+    syncFavicon();
+  };
+
+  // Theme switch logic
+  DOM.theme?.addEventListener('click', () => {
+    const isDark = document.documentElement.classList.contains('dark');
+    if (isDark) {
+      document.documentElement.classList.remove('dark');
+      localStorage.theme = 'light';
+    } else {
+      document.documentElement.classList.add('dark');
+      localStorage.theme = 'dark';
+    }
+    syncThemeUI();
+  });
+
+  // Set initial theme and sync
+  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+  syncThemeUI();
 
   const createSafeNode = (tag, classes, text) => {
     const el = document.createElement(tag);
@@ -367,191 +405,130 @@
 
   const synchronisePreviewDeck = (idx, openModalViewport = false) => {
     if (!filteredProjects[idx]) return;
-    activeIdx = idx; const data = filteredProjects[idx];
+    activeIdx = idx; 
+    const data = filteredProjects[idx];
     
-    Array.from(DOM.list.children).forEach((el, i) => {
-      if (i === idx) {
-        el.className = "group grid grid-cols-[24px_1fr] gap-4 p-5 sm:p-6 rounded-2xl cursor-pointer transition-all duration-500 ease-lux-fluid border bg-white dark:bg-[#141415] border-lux-charcoal/15 dark:border-lux-chalk/20 shadow-lux-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lux-charcoal dark:focus-visible:ring-lux-chalk";
-        const tagSpans = el.querySelectorAll('.w-full > div:last-child > span');
-        tagSpans.forEach(s => s.className = "text-[11px] font-medium px-2.5 py-1 rounded-full transition-all bg-lux-linen dark:bg-lux-obsidian border border-lux-charcoal/5 text-lux-charcoal dark:text-lux-chalk");
-      } else {
-        el.className = "group grid grid-cols-[24px_1fr] gap-4 p-5 sm:p-6 rounded-2xl cursor-pointer transition-all duration-500 ease-lux-fluid border border-transparent hover:bg-white/50 dark:hover:bg-[#141415]/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lux-charcoal dark:focus-visible:ring-lux-chalk";
-        const tagSpans = el.querySelectorAll('.w-full > div:last-child > span');
-        tagSpans.forEach(s => s.className = "text-[11px] font-medium px-2.5 py-1 rounded-full transition-all bg-lux-charcoal/[0.03] dark:bg-lux-chalk/[0.03] text-lux-muted");
-      }
-    });
-    
-    if (!mobileCheck()) {
-      DOM.content.style.opacity = '0'; DOM.content.style.transform = 'translateY(8px)';
-      setTimeout(() => {
-        DOM.ptype.textContent = data.type; DOM.pyear.textContent = data.year;
-        DOM.ptitle.textContent = data.title; DOM.pdesc.textContent = data.description;
-        DOM.pstack.replaceChildren(...data.stack.map(tech => createSafeNode('span', 'px-3 py-1 border border-lux-charcoal/10 dark:border-lux-chalk/12 bg-white/80 dark:bg-[#141415]/80 backdrop-blur-sm rounded-full text-[11px] font-medium shadow-lux-sm', tech)));
-        DOM.content.style.opacity = '1'; DOM.content.style.transform = 'translateY(0)';
-      }, 200);
-    } else if (openModalViewport) {
-      DOM.modalType.textContent = data.type; DOM.modalTitle.textContent = data.title; DOM.modalDesc.textContent = data.description;
-      DOM.modalTags.replaceChildren(...data.stack.map(tech => createSafeNode('span', 'text-[11px] font-medium px-3 py-1 rounded-full bg-lux-charcoal/[0.04] dark:bg-lux-chalk/[0.05] border border-lux-charcoal/[0.03] text-lux-muted dark:text-lux-slate', tech)));
+    if (mobileCheck() && openModalViewport) {
+      DOM.modalTitle.textContent = data.title;
+      DOM.modalDesc.textContent = data.description;
+      DOM.modalType.textContent = `${data.type} — ${data.year}`;
+      DOM.modalTags.replaceChildren();
+      data.stack.forEach(tech => {
+        DOM.modalTags.append(createSafeNode('span', 'text-[11px] font-medium bg-lux-charcoal/[0.04] dark:bg-lux-chalk/[0.05] border border-lux-charcoal/5 dark:border-lux-chalk/5 text-lux-muted px-2.5 py-1 rounded-full', tech));
+      });
       
-      DOM.modalVisit.style.display = data.url ? 'inline-flex' : 'none';
-      DOM.modalCode.style.display = data.code ? 'inline-flex' : 'none';
-      if (data.url) DOM.modalVisit.href = data.url;
-      if (data.code) DOM.modalCode.href = data.code;
+      if (data.url) { DOM.modalVisit.href = data.url; DOM.modalVisit.parentElement.style.display = ''; } 
+      else { DOM.modalVisit.parentElement.style.display = 'none'; }
       
-      DOM.modal.classList.add('opacity-100'); DOM.modal.classList.remove('pointer-events-none');
+      if (data.code) { DOM.modalCode.href = data.code; DOM.modalCode.style.display = ''; } 
+      else { DOM.modalCode.style.display = 'none'; }
+      
+      DOM.modal.classList.remove('pointer-events-none', 'opacity-0');
+      DOM.modal.classList.add('opacity-100');
       DOM.modal.firstElementChild.classList.remove('translate-y-full');
-      document.body.style.overflow = 'hidden'; DOM.modalClose.focus();
+      DOM.modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    } else {
+      DOM.ptype.textContent = data.type;
+      DOM.pyear.textContent = data.year;
+      DOM.ptitle.textContent = data.title;
+      DOM.pdesc.textContent = data.description;
+      DOM.pstack.replaceChildren();
+      data.stack.forEach(tech => {
+        DOM.pstack.append(createSafeNode('span', 'text-[11px] font-medium bg-white/80 dark:bg-[#141415]/80 border border-lux-charcoal/10 dark:border-lux-chalk/12 text-lux-muted dark:text-lux-slate px-2.5 py-1 rounded-full shadow-lux-sm', tech));
+      });
+      DOM.stage.className = "spotlight-mask relative min-h-[460px] p-10 border border-lux-charcoal/[0.04] dark:border-lux-chalk/[0.05] bg-lux-linen dark:bg-lux-obsidian rounded-2xl flex flex-col justify-between overflow-hidden transition-all duration-300";
     }
+    drawLedgerCollection();
   };
 
-  DOM.list.addEventListener('click', e => {
-    const row = e.target.closest('li[role="button"]');
-    if (row) {
-      const targetIndex = parseInt(row.dataset.index, 10);
-      synchronisePreviewDeck(targetIndex, mobileCheck());
-    }
+  // Event Listeners for Ledger List Interaction
+  DOM.list.addEventListener('click', (e) => {
+    const item = e.target.closest('li');
+    if (!item) return;
+    const idx = parseInt(item.dataset.index, 10);
+    synchronisePreviewDeck(idx, mobileCheck());
   });
 
-  DOM.list.addEventListener('keydown', e => {
-    const row = e.target.closest('li[role="button"]');
-    if (row && (e.key === 'Enter' || e.key === ' ')) {
+  DOM.list.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      const targetIndex = parseInt(row.dataset.index, 10);
-      synchronisePreviewDeck(targetIndex, mobileCheck());
+      const item = e.target.closest('li');
+      if (!item) return;
+      const idx = parseInt(item.dataset.index, 10);
+      synchronisePreviewDeck(idx, mobileCheck());
     }
   });
 
-  let searchThrottle;
-  DOM.search.addEventListener('input', e => {
-    clearTimeout(searchThrottle);
-    searchThrottle = setTimeout(() => {
-      const q = e.target.value.trim().toLowerCase();
-      DOM.clear.style.display = q.length > 0 ? 'inline-flex' : 'none';
-      
-      filteredProjects = projects.filter(p => 
-        [p.title, p.type, p.description, ...p.stack].join(' ').toLowerCase().includes(q)
-      );
-      
-      activeIdx = -1; drawLedgerCollection();
-      if (filteredProjects.length > 0 && !mobileCheck()) {
-        synchronisePreviewDeck(0);
-      }
-    }, 150);
+  // Filtering System Logic
+  DOM.search.addEventListener('input', (e) => {
+    const val = e.target.value.trim().toLowerCase();
+    filteredProjects = projects.filter(p => 
+      p.title.toLowerCase().includes(val) || 
+      p.description.toLowerCase().includes(val) || 
+      p.stack.some(t => t.toLowerCase().includes(val))
+    );
+    DOM.clear.style.display = val.length ? 'flex' : 'none';
+    activeIdx = filteredProjects.length ? 0 : -1;
+    drawLedgerCollection();
+    if (activeIdx !== -1 && !mobileCheck()) synchronisePreviewDeck(0);
   });
 
   DOM.clear.addEventListener('click', () => {
-    DOM.search.value = ''; DOM.search.dispatchEvent(new Event('input')); DOM.search.focus();
+    DOM.search.value = '';
+    filteredProjects = [...projects];
+    DOM.clear.style.display = 'none';
+    activeIdx = -1;
+    drawLedgerCollection();
+    if (!mobileCheck() && filteredProjects.length) synchronisePreviewDeck(0);
   });
 
-  const alterVisualCanvasTheme = (mode) => {
-    document.documentElement.classList.toggle('dark', mode === 'dark');
-    DOM.theme.innerHTML = mode === 'dark' ? SVGS.moon : SVGS.sun;
-    localStorage.setItem('nn-theme-cache', mode);
-  };
-
-  DOM.theme.addEventListener('click', () => {
-    alterVisualCanvasTheme(document.documentElement.classList.contains('dark') ? 'light' : 'dark');
+  // Mobile Menu & Modal Actions
+  DOM.menu.addEventListener('click', () => {
+    DOM.mobileMenu.classList.remove('pointer-events-none', 'opacity-0');
+    DOM.mobileMenu.classList.add('opacity-100');
+    DOM.mobileMenu.firstElementChild.classList.remove('translate-y-full');
+    DOM.mobileMenu.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
   });
 
-  let scrollActiveFrame = false;
-  window.addEventListener('scroll', () => {
-    if (!scrollActiveFrame) {
-      window.requestAnimationFrame(() => {
-        const h = document.documentElement.scrollHeight - window.innerHeight;
-        DOM.progress.style.width = `${h > 0 ? (window.scrollY / h) * 100 : 0}%`;
-        DOM.nav.classList.toggle('bg-lux-linen/80', window.scrollY > 20);
-        DOM.nav.classList.toggle('dark:bg-lux-obsidian/80', window.scrollY > 20);
-        DOM.nav.classList.toggle('backdrop-blur-2xl', window.scrollY > 20);
-        DOM.nav.classList.toggle('border-lux-charcoal/[0.04]', window.scrollY > 20);
-        DOM.nav.classList.toggle('dark:border-lux-chalk/[0.05]', window.scrollY > 20);
-        scrollActiveFrame = false;
-      });
-      scrollActiveFrame = true;
-    }
-  }, { passive: true });
+  const closeModals = () => {
+    DOM.mobileMenu.classList.add('opacity-0');
+    DOM.mobileMenu.classList.pointerEventsNone = true;
+    setTimeout(() => DOM.mobileMenu.classList.add('pointer-events-none'), 500);
+    DOM.mobileMenu.firstElementChild.classList.add('translate-y-full');
+    DOM.mobileMenu.setAttribute('aria-hidden', 'true');
 
-  DOM.stage.addEventListener('mousemove', e => {
-    const box = DOM.stage.getBoundingClientRect();
-    DOM.stage.style.setProperty('--px', `${((e.clientX - box.left) / box.width) * 100}%`);
-    DOM.stage.style.setProperty('--py', `${((e.clientY - box.top) / box.height) * 100}%`);
-  }, { passive: true });
+    DOM.modal.classList.add('opacity-0');
+    setTimeout(() => DOM.modal.classList.add('pointer-events-none'), 500);
+    DOM.modal.firstElementChild.classList.add('translate-y-full');
+    DOM.modal.setAttribute('aria-hidden', 'true');
 
-  const dismissActiveDrawers = () => {
-    [DOM.mobileMenu, DOM.modal].forEach(panel => {
-      panel.classList.remove('opacity-100'); panel.classList.add('pointer-events-none');
-      panel.firstElementChild.classList.add('translate-y-full');
-    });
-    DOM.menu.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   };
 
-  DOM.menu.addEventListener('click', () => {
-    DOM.mobileMenu.classList.add('opacity-100'); DOM.mobileMenu.classList.remove('pointer-events-none');
-    DOM.mobileMenu.firstElementChild.classList.remove('translate-y-full');
-    DOM.menu.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden'; DOM.menuClose.focus();
-  });
+  DOM.menuClose.addEventListener('click', closeModals);
+  DOM.modalClose.addEventListener('click', closeModals);
 
-  [DOM.menuClose, DOM.modalClose, DOM.mobileMenu, DOM.modal].forEach(b => {
-    b.addEventListener('click', e => {
-      if (e.target === b || b.closest('button')?.id === 'menuClose' || b.closest('button')?.id === 'modalClose') dismissActiveDrawers();
+  // Scroll Progress and Reveal Elements
+  window.addEventListener('scroll', () => {
+    const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    DOM.progress.style.width = scrolled + '%';
+
+    document.querySelectorAll('.reveal-elem').forEach(elem => {
+      const rect = elem.getBoundingClientRect();
+      if (rect.top <= window.innerHeight - 100) elem.classList.add('is-visible');
     });
-  });
+  }, { passive: true });
 
-  DOM.mobileMenu.querySelectorAll('a').forEach(anchor => anchor.addEventListener('click', dismissActiveDrawers));
+  DOM.year.textContent = new Date().getFullYear();
 
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') dismissActiveDrawers();
-    if (e.key === '/' && document.activeElement !== DOM.search) { e.preventDefault(); DOM.search.focus(); }
-  });
+  // Initialization
+  drawLedgerCollection();
+  if (!mobileCheck() && projects.length) synchronisePreviewDeck(0);
 
-  let resizeFrameTimeout;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeFrameTimeout);
-    resizeFrameTimeout = setTimeout(() => {
-      if (!mobileCheck() && activeIdx === -1 && filteredProjects.length > 0) {
-        synchronisePreviewDeck(0);
-      }
-    }, 150);
-  });
-
-  /* Intersection Observer for Scroll Animations */
-  const setupScrollReveal = () => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { rootMargin: '0px 0px -50px 0px', threshold: 0.1 });
-    
-    document.querySelectorAll('.reveal-elem').forEach(el => observer.observe(el));
-  };
-
-  const bootstrapApplication = () => {
-    const cache = localStorage.getItem('nn-theme-cache');
-    const system = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    alterVisualCanvasTheme(cache || (system ? 'dark' : 'light'));
-    
-    DOM.year.textContent = String(new Date().getFullYear());
-    drawLedgerCollection();
-    setupScrollReveal();
-    
-    if (!mobileCheck()) {
-      synchronisePreviewDeck(0);
-    } else {
-      activeIdx = 0;
-      const initialRow = DOM.list.querySelector('li[role="button"]');
-      if (initialRow) initialRow.className = "group grid grid-cols-[24px_1fr] gap-4 p-5 sm:p-6 rounded-2xl cursor-pointer transition-all duration-500 ease-lux-fluid border bg-white dark:bg-[#141415] border-lux-charcoal/15 dark:border-lux-chalk/20 shadow-lux-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lux-charcoal dark:focus-visible:ring-lux-chalk";
-    }
-  };
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', bootstrapApplication);
-  } else {
-    bootstrapApplication();
-  }
 })();
 </script>
 </body>
