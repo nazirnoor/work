@@ -1,535 +1,933 @@
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Nazir Noori — UI & Front-End Architecture</title>
-<meta name="description" content="Portfolio of Nazir Noori, specialized in fluid layout systems and pristine digital mechanics." />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-<link id="dynamicFavicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%23f8f7f4%22%2F%3E%3Ctext%20x%3D%228%22%20y%3D%2223%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%20font-weight%3D%22800%22%20fill%3D%22%23131314%22%3EN%3C%2Ftext%3E%3C%2Fsvg%3E">
+  <title>Nazir Noori — UI & Front-End Architecture</title>
+  <meta name="description" content="Portfolio of Nazir Noori, focused on responsive UI, front-end architecture, and polished digital interfaces." />
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link
+    id="dynamicFavicon"
+    rel="icon"
+    type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%23f8f7f4%22/%3E%3Ctext%20x%3D%228%22%20y%3D%2223%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%20font-weight%3D%22800%22%20fill%3D%22%23131314%22%3EN%3C/text%3E%3C/svg%3E"
+  />
 
-<script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
 
-<script>
-  tailwind.config = {
-    darkMode: 'class',
-    theme: {
-      extend: {
-        colors: {
-          lux: {
-            linen: '#f8f7f4',     
-            obsidian: '#09090b',   
-            charcoal: '#131314',   
-            chalk: '#f3f3f5',      
-            muted: '#646469',      
-            slate: '#8e8e93',      
-          }
-        },
-        fontFamily: {
-          sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
-        },
-        boxShadow: {
-          'lux-sm': '0 2px 8px rgba(0, 0, 0, 0.02)',
-          'lux-md': '0 12px 32px rgba(19, 19, 20, 0.03)',
-          'lux-lg': '0 24px 64px rgba(19, 19, 20, 0.05)',
-        },
-        transitionTimingFunction: {
-          'lux-fluid': 'cubic-bezier(0.16, 1, 0.3, 1)', 
-        },
-        animation: {
-          'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-        },
-        keyframes: {
-          fadeInUp: {
-            '0%': { opacity: '0', transform: 'translateY(16px)' },
-            '100%': { opacity: '1', transform: 'translateY(0)' },
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            lux: {
+              linen: "#f8f7f4",
+              obsidian: "#09090b",
+              charcoal: "#131314",
+              chalk: "#f3f3f5",
+              muted: "#646469",
+              slate: "#8e8e93",
+              emerald: "#10b981"
+            }
+          },
+          fontFamily: {
+            sans: [
+              '"Plus Jakarta Sans"',
+              "system-ui",
+              "-apple-system",
+              "BlinkMacSystemFont",
+              "Segoe UI",
+              "sans-serif"
+            ]
+          },
+          boxShadow: {
+            soft: "0 10px 30px rgba(15, 23, 42, 0.06)",
+            lift: "0 18px 45px rgba(15, 23, 42, 0.10)",
+            glow: "0 24px 80px rgba(16, 185, 129, 0.16)"
+          },
+          transitionTimingFunction: {
+            fluid: "cubic-bezier(0.16, 1, 0.3, 1)"
           }
         }
-      },
-    },
-  }
-</script>
+      }
+    };
+  </script>
 
-<style type="text/tailwindcss">
-  @layer base {
-    /* Subtle Film Grain / Noise Texture */
+  <style type="text/tailwindcss">
+    @layer base {
+      html {
+        -webkit-text-size-adjust: 100%;
+        text-rendering: geometricPrecision;
+      }
+
+      body {
+        min-height: 100dvh;
+      }
+
+      ::selection {
+        background: rgba(16, 185, 129, 0.22);
+      }
+
+      button,
+      a {
+        -webkit-tap-highlight-color: transparent;
+      }
+    }
+
+    @layer components {
+      .glass {
+        @apply border border-black/[0.06] bg-white/70 backdrop-blur-2xl dark:border-white/[0.08] dark:bg-white/[0.04];
+      }
+
+      .btn-primary {
+        @apply inline-flex h-12 sm:h-14 items-center justify-center rounded-2xl bg-lux-charcoal px-6 sm:px-7 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(0,0,0,0.14)] transition-all duration-300 ease-fluid hover:-translate-y-0.5 hover:shadow-[0_18px_45px_rgba(0,0,0,0.18)] active:translate-y-0 active:scale-[0.98] dark:bg-lux-chalk dark:text-lux-charcoal;
+      }
+
+      .btn-secondary {
+        @apply inline-flex h-12 sm:h-14 items-center justify-center rounded-2xl border border-black/10 bg-white/75 px-6 sm:px-7 text-sm font-semibold text-lux-charcoal shadow-[0_8px_24px_rgba(0,0,0,0.06)] backdrop-blur-xl transition-all duration-300 ease-fluid hover:-translate-y-0.5 hover:border-black/20 hover:bg-white hover:shadow-[0_14px_36px_rgba(0,0,0,0.08)] active:translate-y-0 active:scale-[0.98] dark:border-white/10 dark:bg-white/[0.06] dark:text-lux-chalk dark:hover:bg-white/[0.09];
+      }
+
+      .btn-icon {
+        @apply inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-black/10 bg-white/75 text-lux-muted shadow-[0_8px_24px_rgba(0,0,0,0.05)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:text-lux-charcoal active:scale-[0.96] dark:border-white/10 dark:bg-white/[0.06] dark:text-lux-slate dark:hover:text-lux-chalk;
+      }
+
+      .btn-menu {
+        @apply inline-flex h-10 items-center justify-center rounded-2xl border border-black/10 bg-white/75 px-4 text-sm font-semibold text-lux-charcoal shadow-[0_8px_24px_rgba(0,0,0,0.05)] backdrop-blur-xl transition-all duration-300 active:scale-[0.96] dark:border-white/10 dark:bg-white/[0.06] dark:text-lux-chalk;
+      }
+
+      .btn-mobile-link {
+        @apply flex h-14 items-center justify-between rounded-2xl border border-black/10 bg-black/[0.03] px-5 text-sm font-semibold text-lux-charcoal transition-all duration-300 active:scale-[0.98] dark:border-white/10 dark:bg-white/[0.05] dark:text-lux-chalk;
+      }
+
+      .mobile-sheet {
+        @apply w-full max-w-lg rounded-t-[2rem] border-t border-black/10 bg-white p-5 shadow-2xl dark:border-white/10 dark:bg-[#111113] sm:p-8 max-h-[88dvh] overflow-y-auto;
+        padding-bottom: calc(2rem + env(safe-area-inset-bottom));
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition:
+          opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
+          transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @layer utilities {
+      .text-balance {
+        text-wrap: balance;
+      }
+
+      .text-pretty {
+        text-wrap: pretty;
+      }
+
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    }
+
     body {
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+      background-image:
+        radial-gradient(circle at top center, rgba(16, 185, 129, 0.11), transparent 34rem),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.78), transparent 22rem);
     }
+
     .dark body {
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.015'/%3E%3C/svg%3E");
-    }
-  }
-
-  @layer components {
-    /* Glassmorphic Boundaries */
-    .lux-glass-card {
-      @apply bg-white/60 dark:bg-[#141415]/50 backdrop-blur-3xl;
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.9), 0 12px 32px rgba(19, 19, 20, 0.025);
-    }
-    
-    .dark .lux-glass-card {
-      box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.04), 0 24px 64px rgba(0, 0, 0, 0.3);
+      background-image:
+        radial-gradient(circle at top center, rgba(16, 185, 129, 0.10), transparent 34rem),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04), transparent 22rem);
     }
 
-    /* Creative Header Underline */
-    .heading-underline {
-      @apply relative inline-block pb-2 sm:pb-3 tracking-tight;
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
     }
-    .heading-underline::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 40px;
-      height: 2px;
-      background: currentColor;
-      opacity: 0.2;
-      transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
-    }
-    .group:hover .heading-underline::after,
-    .heading-underline:hover::after {
-      width: 100%;
-      opacity: 0.8;
-    }
-
-    /* Sibling Dimming Effect for List */
-    .ledger-list:hover > li:not(:hover) {
-      @apply opacity-40 grayscale-[20%];
-    }
-
-    /* Hide scrollbar for smooth mobile modal scrolling */
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    
-    /* Scroll Reveal Initial State */
-    .reveal-elem {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .reveal-elem.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .spotlight-mask::before {
-    content: ''; position: absolute; inset: 0;
-    background: radial-gradient(circle at var(--px, 50%) var(--py, 50%), rgba(19, 19, 20, 0.03), transparent 70%);
-    pointer-events: none;
-  }
-  .dark .spotlight-mask::before {
-    background: radial-gradient(circle at var(--px, 50%) var(--py, 50%), rgba(243, 243, 245, 0.04), transparent 70%);
-  }
-</style>
+  </style>
 </head>
-<body class="bg-lux-linen text-lux-charcoal dark:bg-lux-obsidian dark:text-lux-chalk transition-colors duration-500 ease-lux-fluid antialiased relative overflow-x-hidden">
 
-<div class="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[600px] sm:w-[800px] h-[300px] sm:h-[400px] bg-emerald-500/10 dark:bg-emerald-500/5 blur-[100px] rounded-full pointer-events-none z-0"></div>
+<body class="overflow-x-hidden bg-lux-linen font-sans text-lux-charcoal antialiased transition-colors duration-500 dark:bg-lux-obsidian dark:text-lux-chalk">
 
-<div id="progress" class="fixed top-0 left-0 h-[2px] bg-lux-charcoal dark:bg-lux-chalk z-50 transition-[width] duration-75 will-change-width" style="width: 0%"></div>
+  <div
+    id="progress"
+    class="fixed left-0 top-0 z-[90] h-[2px] bg-lux-charcoal transition-[width] duration-100 dark:bg-lux-chalk"
+    style="width: 0%"
+  ></div>
 
-<header id="nav" class="sticky top-0 z-40 w-full border-b border-transparent transition-all duration-300 ease-lux-fluid">
-  <div class="max-w-6xl mx-auto px-5 sm:px-12 h-20 flex items-center justify-between">
-    <a href="#top" class="text-base font-semibold tracking-widest uppercase flex items-center gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded-lg px-2 py-1 -ml-2" aria-label="Return home">
-      <div class="w-2 h-2 bg-[#10b981] rounded-full shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div> NAZIR NOORI
-    </a>
-    
-    <nav class="flex items-center gap-2 sm:gap-3" aria-label="Global Options Interface">
-      <a class="hidden sm:inline-flex items-center justify-center h-10 px-4.5 text-sm font-medium text-lux-muted dark:text-lux-slate hover:text-lux-charcoal dark:hover:text-lux-chalk transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lux-charcoal dark:focus-visible:ring-lux-chalk rounded-full" href="#focus-anchor">Focus</a>
-      <a class="hidden sm:inline-flex items-center justify-center h-10 px-4.5 text-sm font-medium text-lux-muted dark:text-lux-slate hover:text-lux-charcoal dark:hover:text-lux-chalk transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lux-charcoal dark:focus-visible:ring-lux-chalk rounded-full" href="#archive-anchor">Archive</a>
-      
-      <button id="themeBtn" type="button" class="w-10 h-10 rounded-full border border-lux-charcoal/10 dark:border-lux-chalk/12 bg-white/80 dark:bg-[#141415]/80 backdrop-blur-md text-lux-muted dark:text-lux-slate hover:text-lux-charcoal dark:hover:text-lux-chalk flex items-center justify-center transition-all shadow-lux-sm hover:scale-105 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lux-charcoal dark:focus-visible:ring-lux-chalk" aria-label="Toggle layout style theme"></button>
-      
-      <a class="hidden sm:inline-flex items-center justify-center h-10 px-6 text-sm font-medium bg-lux-charcoal text-lux-linen dark:bg-lux-chalk dark:text-lux-charcoal rounded-full transition-all hover:opacity-90 active:scale-95 shadow-lux-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-lux-charcoal dark:focus-visible:ring-lux-chalk" href="mailto:nazir_noori@yahoo.com?subject=Project%20Inquiry%20%E2%80%94%20UI%20%26%20Front-End%20Architecture&body=Hi%20Nazir%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20inquire%20about%20your%20availability%20for%20an%20upcoming%20project.%0A%0AHere%20are%20some%20preliminary%20details%3A%0A-%20Project%20Scope%3A%20%0A-%20Timeline%20Expectation%3A%20%0A%0ALooking%20forward%20to%20your%20response.%0A%0ABest%20regards%2C">Get In Touch</a>
-      
-      <button id="menuBtn" type="button" class="sm:hidden h-10 px-5 text-sm font-medium bg-white/80 dark:bg-[#141415]/80 backdrop-blur-md border border-lux-charcoal/10 dark:border-lux-chalk/12 rounded-full shadow-lux-sm active:scale-95 transition-transform" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
-    </nav>
-  </div>
-</header>
-
-<main id="top" class="max-w-6xl mx-auto px-5 sm:px-12 relative z-10">
-  <section class="pt-16 sm:pt-28 pb-20 sm:pb-32 flex flex-col items-start">
-    <div class="inline-flex items-center gap-3 px-4 py-2 bg-white/60 dark:bg-[#141415]/50 border border-lux-charcoal/10 dark:border-lux-chalk/12 rounded-full text-xs font-medium text-lux-muted dark:text-lux-slate shadow-lux-sm backdrop-blur-md mb-10 opacity-0 animate-fade-in-up" style="animation-delay: 0.1s;">
-      <div class="w-1.5 h-1.5 bg-[#10b981] rounded-full animate-pulse"></div>
-      <span>Available for consultations</span>
-    </div>
-    
-    <h1 class="text-[2.5rem] sm:text-[4.75rem] font-semibold tracking-[-0.02em] leading-[1.05] text-lux-charcoal dark:text-lux-chalk mb-8 opacity-0 animate-fade-in-up text-balance" style="animation-delay: 0.2s;">
-      Engineered views.<br><span class="font-light text-lux-muted dark:text-lux-slate">Polished models.</span>
-    </h1>
-    <p class="text-lg sm:text-xl font-light leading-relaxed text-lux-muted dark:text-lux-slate max-w-[50ch] mb-12 text-pretty opacity-0 animate-fade-in-up" style="animation-delay: 0.3s;">
-      I build lightweight web systems, semantic design tokens, and highly ordered interface systems that translate custom design intentions into pristine browser deployments.
-    </p>
-    
-    <div class="flex flex-col sm:flex-row flex-wrap gap-4 w-full sm:w-auto opacity-0 animate-fade-in-up" style="animation-delay: 0.4s;">
-      <a class="group inline-flex items-center justify-center h-12 sm:h-14 px-8 text-sm font-medium bg-lux-charcoal text-lux-linen dark:bg-lux-chalk dark:text-lux-charcoal rounded-full shadow-lux-md hover:scale-[1.02] active:scale-[0.98] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-lux-charcoal" href="#archive-anchor">
-        Scan Archive <span class="ml-2 transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+  <!-- Header -->
+  <header id="nav" class="sticky top-0 z-50 border-b border-transparent transition-all duration-300">
+    <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:h-20 sm:px-6 lg:px-12">
+      <a
+        href="#top"
+        class="flex items-center gap-3 rounded-2xl px-1 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+        aria-label="Return home"
+      >
+        <span class="h-2.5 w-2.5 rounded-full bg-emerald-500 shadow-[0_0_14px_rgba(16,185,129,0.7)]"></span>
+        <span class="text-sm font-bold tracking-[0.16em] sm:text-base">NAZIR NOORI</span>
       </a>
-      <a class="group inline-flex items-center justify-center h-12 sm:h-14 px-8 text-sm font-medium bg-white/60 dark:bg-[#141415]/60 backdrop-blur-md border border-lux-charcoal/10 dark:border-lux-chalk/12 rounded-full shadow-lux-sm hover:border-lux-muted dark:hover:border-lux-slate hover:scale-[1.02] active:scale-[0.98] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-lux-charcoal" href="https://github.com/nazirnoor" target="_blank" rel="noopener">
-        GitHub Matrix <span class="ml-2 opacity-50 transition-opacity duration-300 group-hover:opacity-100">&nearr;</span>
-      </a>
-    </div>
-  </section>
 
-  <section id="focus-anchor" class="py-20 sm:py-28 border-t border-lux-charcoal/[0.05] dark:border-lux-chalk/[0.06] group reveal-elem" aria-label="Functional Capabilities">
-    <div class="mb-14">
-      <span class="text-[10px] font-bold tracking-[0.1em] uppercase text-lux-muted dark:text-lux-slate block mb-4">Core Vector Spec</span>
-      <h2 class="text-3xl sm:text-4xl font-semibold heading-underline text-balance">Operational Domain</h2>
-    </div>
-    
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <article class="lux-glass-card border border-lux-charcoal/[0.04] dark:border-lux-chalk/[0.05] rounded-3xl p-8 sm:p-10 transition-all duration-500 hover:-translate-y-1 hover:border-lux-charcoal/15 dark:hover:border-lux-chalk/20 shadow-lux-sm hover:shadow-lux-lg cursor-default">
-        <h3 class="text-lg font-medium tracking-tight mb-4 text-lux-charcoal dark:text-lux-chalk">Design Platforms</h3>
-        <p class="text-[15px] leading-relaxed text-lux-muted dark:text-lux-slate font-light">Implementation of centralized layout configurations structured around robust design token arrays for seamless platform scaling.</p>
-      </article>
-      <article class="lux-glass-card border border-lux-charcoal/[0.04] dark:border-lux-chalk/[0.05] rounded-3xl p-8 sm:p-10 transition-all duration-500 hover:-translate-y-1 hover:border-lux-charcoal/15 dark:hover:border-lux-chalk/20 shadow-lux-sm hover:shadow-lux-lg cursor-default">
-        <h3 class="text-lg font-medium tracking-tight mb-4 text-lux-charcoal dark:text-lux-chalk">React Architecture</h3>
-        <p class="text-[15px] leading-relaxed text-lux-muted dark:text-lux-slate font-light">Composition of optimized functional code tracks configured explicitly to minimize runtime visual mutations and shifting indicators.</p>
-      </article>
-      <article class="lux-glass-card border border-lux-charcoal/[0.04] dark:border-lux-chalk/[0.05] rounded-3xl p-8 sm:p-10 transition-all duration-500 hover:-translate-y-1 hover:border-lux-charcoal/15 dark:hover:border-lux-chalk/20 shadow-lux-sm hover:shadow-lux-lg cursor-default">
-        <h3 class="text-lg font-medium tracking-tight mb-4 text-lux-charcoal dark:text-lux-chalk">Responsive Logic</h3>
-        <p class="text-[15px] leading-relaxed text-lux-muted dark:text-lux-slate font-light">Granular style rules that map natively to fluid breakpoint variables, avoiding viewport presentation structural overlap.</p>
-      </article>
-    </div>
-  </section>
+      <nav class="hidden items-center gap-2 sm:flex" aria-label="Main navigation">
+        <a href="#focus" class="rounded-full px-4 py-2 text-sm font-medium text-lux-muted transition hover:text-lux-charcoal dark:text-lux-slate dark:hover:text-lux-chalk">Focus</a>
+        <a href="#work" class="rounded-full px-4 py-2 text-sm font-medium text-lux-muted transition hover:text-lux-charcoal dark:text-lux-slate dark:hover:text-lux-chalk">Work</a>
+        <a href="#contact" class="rounded-full px-4 py-2 text-sm font-medium text-lux-muted transition hover:text-lux-charcoal dark:text-lux-slate dark:hover:text-lux-chalk">Contact</a>
+      </nav>
 
-  <section id="archive-anchor" class="py-20 sm:py-28 border-t border-lux-charcoal/[0.05] dark:border-lux-chalk/[0.06] group reveal-elem" aria-label="Production Ledger Archive">
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-8 mb-14">
-      <div>
-        <span class="text-[10px] font-bold tracking-[0.1em] uppercase text-lux-muted dark:text-lux-slate block mb-4">Verified Deployments</span>
-        <h2 class="text-3xl sm:text-4xl font-semibold heading-underline text-balance">Selection Logs</h2>
-      </div>
-      <div class="relative w-full sm:w-80">
-        <input id="search" type="search" placeholder="Filter ledger criteria..." class="w-full h-12 pl-6 pr-12 bg-white/60 dark:bg-[#141415]/60 backdrop-blur-md border border-lux-charcoal/10 dark:border-lux-chalk/12 rounded-full text-sm placeholder:text-lux-slate focus:outline-none focus:border-lux-charcoal dark:focus:border-lux-chalk focus:ring-1 focus:ring-lux-charcoal dark:focus:ring-lux-chalk transition-all shadow-lux-sm" aria-label="Filter ledger entries" />
-        <button id="clear" type="button" class="absolute right-4 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full items-center justify-center text-lux-slate hover:text-lux-charcoal dark:hover:text-lux-chalk font-light hidden transition-colors">&times;</button>
-      </div>
-    </div>
+      <div class="flex items-center gap-2">
+        <button id="themeBtn" type="button" class="btn-icon" aria-label="Toggle theme"></button>
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-      <ul id="list" class="ledger-list lg:col-span-7 flex flex-col gap-3 bg-white/30 dark:bg-[#141415]/20 backdrop-blur-sm border border-lux-charcoal/[0.04] dark:border-lux-chalk/[0.05] p-2.5 rounded-3xl shadow-inner transition-colors duration-500" role="region" aria-live="polite"></ul>
-      
-      <aside class="hidden lg:block lg:col-span-5 sticky top-32 border border-lux-charcoal/10 dark:border-lux-chalk/12 rounded-3xl bg-white/80 dark:bg-[#141415]/80 backdrop-blur-xl p-3 shadow-lux-lg">
-        <div id="stage" class="spotlight-mask relative min-h-[460px] p-10 border border-lux-charcoal/[0.04] dark:border-lux-chalk/[0.05] bg-lux-linen dark:bg-lux-obsidian rounded-2xl flex flex-col justify-between overflow-hidden transition-all duration-300">
-          <div id="previewContent" class="relative z-10 transition-all duration-300">
-            <div class="flex justify-between text-[10px] font-bold tracking-[0.1em] uppercase text-lux-slate dark:text-lux-muted border-b border-lux-charcoal/[0.05] dark:border-lux-chalk/[0.06] pb-5 mb-8">
-              <span id="ptype"></span><span id="pyear"></span>
-            </div>
-            <h3 id="ptitle" class="text-2xl font-medium tracking-tight mb-4 text-lux-charcoal dark:text-lux-chalk"></h3>
-            <p id="pdesc" class="text-[15px] leading-relaxed text-lux-muted dark:text-lux-slate font-light text-pretty"></p>
-          </div>
-          <div id="pstack" class="relative z-10 flex flex-wrap gap-2 pt-8 border-t border-lux-charcoal/[0.05] dark:border-lux-chalk/[0.06]"></div>
-        </div>
-      </aside>
-    </div>
-  </section>
+        <button
+          id="menuBtn"
+          type="button"
+          class="btn-menu sm:hidden"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+        >
+          Menu
+        </button>
 
-  <section class="py-16 sm:py-24 reveal-elem">
-    <div class="bg-lux-charcoal dark:bg-[#141415] text-lux-linen dark:text-lux-chalk border border-lux-charcoal dark:border-lux-chalk/10 rounded-[2rem] px-6 py-20 sm:p-24 text-center shadow-lux-lg relative overflow-hidden group">
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-2xl bg-gradient-to-b from-white/5 to-transparent opacity-50 pointer-events-none rounded-full blur-3xl transition-opacity duration-700 group-hover:opacity-80"></div>
-      
-      <div class="relative z-10">
-        <h2 class="text-3xl sm:text-4xl font-medium tracking-tight text-white mb-5 text-balance">Refine your architecture.</h2>
-        <p class="text-lux-slate dark:text-lux-muted text-base sm:text-lg max-w-[46ch] mx-auto font-light mb-10 text-pretty">Available for specialized remote engineering contracts requiring micro-typographical precision and stable UI development.</p>
-        
-        <a class="inline-flex items-center justify-center h-12 sm:h-14 px-8 text-sm font-medium bg-lux-linen text-lux-charcoal rounded-full hover:scale-[1.02] active:scale-[0.98] shadow-lux-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-lux-charcoal focus-visible:ring-lux-linen" 
-           href="mailto:nazir_noori@yahoo.com?subject=Project%20Inquiry%20%E2%80%94%20UI%20%26%20Front-End%20Architecture%20Collaboration&body=Hi%20Nazir%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20inquire%20about%20your%20availability%20for%20an%20upcoming%20project.%20We%20are%20seeking%20specialized%20front-end%20architecture%20and%20UI%20design%20expertise.%0A%0AHere%20are%20some%20brief%20details%20about%20what%20we%20are%20building%3A%0A-%20Project%20Scope%3A%20%5BInsert%20brief%20overview%20here%5D%0A-%20Estimated%20Timeline%3A%20%5BInsert%20target%20launch%20or%20milestones%5D%0A%0ALooking%20forward%20to%20discussing%20how%20we%20can%20collaborate.%0A%0ABest%20regards%2C%0A%5BYour%20Name%5D%0A%5BYour%20Company%5D">
-          Establish Communication <span class="ml-2">&rarr;</span>
+        <a
+          href="mailto:nazir_noori@yahoo.com?subject=Project Inquiry — Portfolio Collaboration"
+          class="hidden sm:inline-flex h-10 items-center justify-center rounded-2xl bg-lux-charcoal px-5 text-sm font-semibold text-white shadow-[0_10px_26px_rgba(0,0,0,0.13)] transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.98] dark:bg-lux-chalk dark:text-lux-charcoal"
+        >
+          Get in Touch
         </a>
       </div>
     </div>
-  </section>
-</main>
+  </header>
 
-<footer class="border-t border-lux-charcoal/[0.05] dark:border-lux-chalk/[0.06] mt-16 py-12 text-sm text-lux-muted dark:text-lux-slate" role="contentinfo">
-  <div class="max-w-6xl mx-auto px-5 sm:px-12 flex flex-col sm:flex-row items-center justify-between gap-6">
-    <div>&copy; <span id="year"></span> Nazir Noori. Built intentionally.</div>
-    <div class="flex gap-6">
-      <a href="https://github.com/nazirnoor" target="_blank" rel="noopener" class="hover:text-lux-charcoal dark:hover:text-lux-chalk transition-colors focus-visible:underline">GitHub</a>
-      <a href="https://codepen.io/nazirn" target="_blank" rel="noopener" class="hover:text-lux-charcoal dark:hover:text-lux-chalk transition-colors focus-visible:underline">CodePen</a>
-      <a href="#top" class="hover:text-lux-charcoal dark:hover:text-lux-chalk transition-colors focus-visible:underline">Back to top &uarr;</a>
+  <main id="top" class="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-12">
+
+    <!-- Hero -->
+    <section class="pb-16 pt-12 sm:pb-24 sm:pt-24 lg:pt-28">
+      <div class="mb-8 inline-flex items-center gap-3 rounded-full border border-black/[0.06] bg-white/70 px-4 py-2 text-xs font-medium text-lux-muted shadow-soft backdrop-blur-xl dark:border-white/[0.08] dark:bg-white/[0.04] dark:text-lux-slate">
+        <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        Available for consultations
+      </div>
+
+      <h1 class="max-w-5xl text-[clamp(2.45rem,13vw,5.6rem)] font-semibold leading-[0.96] tracking-[-0.055em] text-balance">
+        Engineered interfaces.
+        <br />
+        <span class="font-light text-lux-muted dark:text-lux-slate">Built to feel effortless.</span>
+      </h1>
+
+      <p class="mt-6 max-w-2xl text-base font-light leading-relaxed text-lux-muted text-pretty dark:text-lux-slate sm:text-xl">
+        I design and build responsive web interfaces with clean front-end architecture, fluid layouts, reusable components, and polished interaction details.
+      </p>
+
+      <div class="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+        <a href="#work" class="btn-primary w-full sm:w-auto">
+          View Projects
+          <span class="ml-2">→</span>
+        </a>
+
+        <a href="https://github.com/nazirnoor" target="_blank" rel="noopener" class="btn-secondary w-full sm:w-auto">
+          GitHub
+          <span class="ml-2 opacity-60">↗</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Focus -->
+    <section id="focus" class="reveal border-t border-black/[0.06] py-14 dark:border-white/[0.08] sm:py-24">
+      <div class="mb-8 sm:mb-12">
+        <p class="mb-3 text-[11px] font-bold uppercase tracking-[0.18em] text-lux-muted dark:text-lux-slate">
+          Core Focus
+        </p>
+        <h2 class="text-balance text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">
+          Modern front-end systems for clean digital products.
+        </h2>
+      </div>
+
+      <div class="grid gap-4 md:grid-cols-3">
+        <article class="glass rounded-[1.5rem] p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-glow sm:p-8">
+          <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-500/10 text-sm font-bold text-emerald-600 dark:text-emerald-400">01</div>
+          <h3 class="mb-3 text-lg font-semibold tracking-tight">Responsive UI</h3>
+          <p class="text-sm leading-relaxed text-lux-muted dark:text-lux-slate">
+            Fluid layouts, mobile-first sections, accessible spacing, and clean visual hierarchy across all devices.
+          </p>
+        </article>
+
+        <article class="glass rounded-[1.5rem] p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-glow sm:p-8">
+          <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-500/10 text-sm font-bold text-emerald-600 dark:text-emerald-400">02</div>
+          <h3 class="mb-3 text-lg font-semibold tracking-tight">Front-End Architecture</h3>
+          <p class="text-sm leading-relaxed text-lux-muted dark:text-lux-slate">
+            Reusable structure, component-driven thinking, semantic markup, and performance-conscious interaction logic.
+          </p>
+        </article>
+
+        <article class="glass rounded-[1.5rem] p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-glow sm:p-8">
+          <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-500/10 text-sm font-bold text-emerald-600 dark:text-emerald-400">03</div>
+          <h3 class="mb-3 text-lg font-semibold tracking-tight">Polished UX</h3>
+          <p class="text-sm leading-relaxed text-lux-muted dark:text-lux-slate">
+            Subtle motion, clear states, mobile-friendly modals, accessible controls, and delightful interaction details.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section id="work" class="reveal border-t border-black/[0.06] py-14 dark:border-white/[0.08] sm:py-24">
+      <div class="mb-8 flex flex-col gap-6 sm:mb-12 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p class="mb-3 text-[11px] font-bold uppercase tracking-[0.18em] text-lux-muted dark:text-lux-slate">
+            Selected Work
+          </p>
+          <h2 class="text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">Project Archive</h2>
+        </div>
+
+        <div class="relative w-full sm:w-80">
+          <input
+            id="search"
+            type="search"
+            placeholder="Search projects..."
+            class="h-12 w-full rounded-2xl border border-black/10 bg-white/75 px-5 pr-11 text-sm shadow-[0_8px_24px_rgba(0,0,0,0.05)] outline-none backdrop-blur-xl transition focus:border-lux-charcoal/30 dark:border-white/10 dark:bg-white/[0.05] dark:focus:border-white/30"
+            aria-label="Search projects"
+          />
+          <button
+            id="clearSearch"
+            type="button"
+            class="absolute right-4 top-1/2 hidden h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full text-lux-slate hover:text-lux-charcoal dark:hover:text-white"
+            aria-label="Clear search"
+          >
+            ×
+          </button>
+        </div>
+      </div>
+
+      <div class="grid gap-6 lg:grid-cols-12">
+        <ul id="projectList" class="grid gap-3 lg:col-span-7" aria-live="polite"></ul>
+
+        <aside class="hidden lg:block lg:col-span-5">
+          <div class="sticky top-28 rounded-[1.75rem] border border-black/[0.06] bg-white/70 p-3 shadow-soft backdrop-blur-2xl dark:border-white/[0.08] dark:bg-white/[0.04]">
+            <div class="flex min-h-[430px] flex-col justify-between rounded-[1.35rem] border border-black/[0.04] bg-lux-linen p-8 dark:border-white/[0.06] dark:bg-lux-obsidian">
+              <div>
+                <div class="mb-8 flex justify-between border-b border-black/[0.06] pb-5 text-[11px] font-bold uppercase tracking-[0.16em] text-lux-slate dark:border-white/[0.08]">
+                  <span id="previewType"></span>
+                  <span id="previewYear"></span>
+                </div>
+
+                <h3 id="previewTitle" class="mb-4 text-3xl font-semibold tracking-[-0.035em]"></h3>
+                <p id="previewDesc" class="text-sm leading-relaxed text-lux-muted dark:text-lux-slate"></p>
+              </div>
+
+              <div id="previewStack" class="flex flex-wrap gap-2 border-t border-black/[0.06] pt-6 dark:border-white/[0.08]"></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="reveal py-14 sm:py-24">
+      <div class="relative overflow-hidden rounded-[2rem] bg-lux-charcoal px-6 py-16 text-center text-white shadow-lift dark:bg-white/[0.06] sm:p-20">
+        <div class="absolute inset-x-0 top-0 mx-auto h-64 max-w-2xl rounded-full bg-emerald-400/20 blur-3xl"></div>
+
+        <div class="relative z-10">
+          <p class="mb-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/50">
+            Let’s Build
+          </p>
+
+          <h2 class="mb-5 text-balance text-3xl font-semibold tracking-[-0.04em] sm:text-5xl">
+            Have a project in mind?
+          </h2>
+
+          <p class="mx-auto mb-8 max-w-xl text-sm leading-relaxed text-white/60 sm:text-lg">
+            I’m available for front-end builds, responsive UI improvements, landing pages, and clean portfolio systems.
+          </p>
+
+          <a
+            href="mailto:nazir_noori@yahoo.com?subject=Project Inquiry — Portfolio Collaboration"
+            class="inline-flex h-12 items-center justify-center rounded-2xl bg-white px-7 text-sm font-semibold text-lux-charcoal shadow-[0_14px_36px_rgba(0,0,0,0.22)] transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.98] sm:h-14"
+          >
+            Email Me
+            <span class="ml-2">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-black/[0.06] py-10 dark:border-white/[0.08]">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-5 px-4 text-sm text-lux-muted dark:text-lux-slate sm:flex-row sm:px-6 lg:px-12">
+      <p>© <span id="year"></span> Nazir Noori. Built intentionally.</p>
+
+      <div class="flex gap-5">
+        <a href="https://github.com/nazirnoor" target="_blank" rel="noopener" class="hover:text-lux-charcoal dark:hover:text-white">GitHub</a>
+        <a href="https://codepen.io/nazirn" target="_blank" rel="noopener" class="hover:text-lux-charcoal dark:hover:text-white">CodePen</a>
+        <a href="#top" class="hover:text-lux-charcoal dark:hover:text-white">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobileMenu"
+    class="fixed inset-0 z-[80] hidden items-end justify-center bg-lux-linen/80 opacity-0 pointer-events-none backdrop-blur-xl transition-opacity duration-300 dark:bg-lux-obsidian/80"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+  >
+    <div class="mobile-sheet no-scrollbar translate-y-full transition-transform duration-300 ease-fluid">
+      <div class="mx-auto mb-7 h-1.5 w-12 rounded-full bg-black/15 dark:bg-white/20"></div>
+
+      <div class="mb-6 flex items-center justify-between">
+        <p class="text-[11px] font-bold uppercase tracking-[0.18em] text-lux-muted dark:text-lux-slate">
+          Navigation
+        </p>
+        <button id="menuClose" type="button" class="btn-icon text-xl" aria-label="Close menu">×</button>
+      </div>
+
+      <div class="grid gap-3">
+        <a href="#focus" class="mobileNavLink btn-mobile-link">
+          <span>Focus</span>
+          <span>→</span>
+        </a>
+
+        <a href="#work" class="mobileNavLink btn-mobile-link">
+          <span>Work</span>
+          <span>→</span>
+        </a>
+
+        <a href="#contact" class="mobileNavLink btn-mobile-link">
+          <span>Contact</span>
+          <span>→</span>
+        </a>
+
+        <a
+          href="mailto:nazir_noori@yahoo.com?subject=Project Inquiry — Portfolio Collaboration"
+          class="mt-2 flex h-14 items-center justify-center rounded-2xl bg-lux-charcoal px-5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(0,0,0,0.14)] transition active:scale-[0.98] dark:bg-lux-chalk dark:text-lux-charcoal"
+        >
+          Get in Touch
+        </a>
+      </div>
     </div>
   </div>
-</footer>
 
-<div id="mobileMenu" class="fixed inset-0 z-50 bg-lux-linen/80 dark:bg-lux-obsidian/80 backdrop-blur-2xl opacity-0 pointer-events-none transition-opacity duration-500 ease-lux-fluid flex items-end justify-center" aria-hidden="true" role="dialog" aria-modal="true">
-  <div class="w-full max-w-lg bg-white dark:bg-[#141415] border-t border-lux-charcoal/10 dark:border-lux-chalk/12 rounded-t-[2rem] p-6 sm:p-8 transform translate-y-full transition-transform duration-500 ease-lux-fluid max-h-[90vh] overflow-y-auto no-scrollbar shadow-lux-lg pb-12">
-    <div class="w-12 h-1.5 bg-lux-charcoal/15 dark:bg-lux-chalk/20 rounded-full mx-auto mb-8"></div>
-    
-    <div class="flex justify-between items-center mb-8">
-      <span class="text-[10px] font-bold tracking-[0.1em] uppercase text-lux-muted">Navigation Index</span>
-      <button id="menuClose" type="button" class="w-10 h-10 rounded-full bg-lux-charcoal/[0.04] dark:bg-lux-chalk/[0.05] text-xl flex items-center justify-center border-none hover:bg-lux-charcoal/10 dark:hover:bg-lux-chalk/10 transition-colors" aria-label="Dismiss dashboard layers">&times;</button>
-    </div>
-    <div class="flex flex-col gap-3">
-      <a href="#focus-anchor" class="h-14 border border-lux-charcoal/5 dark:border-lux-chalk/5 px-6 rounded-2xl flex items-center text-sm font-medium active:bg-lux-charcoal/5 transition-colors">Focus Domain</a>
-      <a href="#archive-anchor" class="h-14 border border-lux-charcoal/5 dark:border-lux-chalk/5 px-6 rounded-2xl flex items-center text-sm font-medium active:bg-lux-charcoal/5 transition-colors">System Ledger</a>
-      
-      <a href="mailto:nazir_noori@yahoo.com?subject=Project%20Inquiry%20%E2%80%94%20UI%20%26%20Front-End%20Architecture%20Collaboration&body=Hi%20Nazir%2C%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20inquire%20about%20your%20availability%20for%20an%20upcoming%20project.%20We%20are%20seeking%20specialized%20front-end%20architecture%20and%20UI%20design%20expertise.%0A%0AHere%20are%20some%20brief%20details%20about%20what%20we%20are%20building%3A%0A-%20Project%20Scope%3A%20%5BInsert%20brief%20overview%20here%5D%0A-%20Estimated%20Timeline%3A%20%5BInsert%20target%20launch%20or%20milestones%5D%0A%0ALooking%20forward%20to%20discussing%20how%20we%20can%20collaborate.%0A%0ABest%20regards%2C%0A%5BYour%20Name%5D%0A%5BYour%20Company%5D" 
-         class="h-14 mt-2 bg-lux-charcoal text-lux-linen dark:bg-lux-chalk dark:text-lux-charcoal rounded-2xl flex items-center px-6 text-sm font-medium justify-center shadow-lux-md active:scale-[0.98] transition-transform">
-        Send Requirements
-      </a>
-    </div>
-  </div>
-</div>
+  <!-- Project Modal -->
+  <div
+    id="projectModal"
+    class="fixed inset-0 z-[80] hidden items-end justify-center bg-lux-linen/80 opacity-0 pointer-events-none backdrop-blur-xl transition-opacity duration-300 dark:bg-lux-obsidian/80"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+  >
+    <div class="mobile-sheet no-scrollbar translate-y-full transition-transform duration-300 ease-fluid">
+      <div class="mx-auto mb-7 h-1.5 w-12 rounded-full bg-black/15 dark:bg-white/20"></div>
 
-<div id="projectModal" class="fixed inset-0 z-50 bg-lux-linen/80 dark:bg-lux-obsidian/80 backdrop-blur-2xl opacity-0 pointer-events-none transition-opacity duration-500 ease-lux-fluid flex items-end justify-center" aria-hidden="true" role="dialog" aria-modal="true">
-  <div class="w-full max-w-lg bg-white dark:bg-[#141415] border-t border-lux-charcoal/10 dark:border-lux-chalk/12 rounded-t-[2rem] p-6 sm:p-8 transform translate-y-full transition-transform duration-500 ease-lux-fluid max-h-[90vh] overflow-y-auto no-scrollbar shadow-lux-lg pb-12">
-    <div class="w-12 h-1.5 bg-lux-charcoal/15 dark:bg-lux-chalk/20 rounded-full mx-auto mb-8"></div>
-    
-    <div class="flex justify-between items-center mb-6">
-      <span id="modalType" class="text-[10px] font-bold tracking-[0.1em] uppercase text-lux-muted">Metadata Node</span>
-      <button id="modalClose" type="button" class="w-10 h-10 rounded-full bg-lux-charcoal/[0.04] dark:bg-lux-chalk/[0.05] text-xl flex items-center justify-center border-none hover:bg-lux-charcoal/10 dark:hover:bg-lux-chalk/10 transition-colors" aria-label="Dismiss metadata screen">&times;</button>
-    </div>
-    <h3 id="modalTitle" class="text-2xl font-medium tracking-tight text-lux-charcoal dark:text-lux-chalk mb-3"></h3>
-    <p id="modalDesc" class="text-[15px] font-light text-lux-muted dark:text-lux-slate leading-relaxed mb-8 text-pretty"></p>
-    <div id="modalTags" class="flex flex-wrap gap-2 mb-10"></div>
-    <div class="flex flex-col sm:flex-row gap-3 border-t border-lux-charcoal/[0.05] dark:border-lux-chalk/[0.06] pt-6">
-      <a id="modalVisit" href="#" target="_blank" rel="noopener" class="flex-1 h-12 bg-lux-charcoal text-lux-linen dark:bg-lux-chalk dark:text-lux-charcoal rounded-2xl text-xs font-medium flex items-center justify-center shadow-lux-md active:scale-[0.98] transition-transform">Launch Instance</a>
-      <a id="modalCode" href="#" target="_blank" rel="noopener" class="flex-1 h-12 border border-lux-charcoal/10 dark:border-lux-chalk/12 rounded-2xl text-xs font-medium flex items-center justify-center bg-white dark:bg-[#141415] text-lux-charcoal dark:text-lux-chalk shadow-lux-sm active:scale-[0.98] transition-transform">Source Repo</a>
+      <div class="mb-6 flex items-center justify-between">
+        <p id="modalMeta" class="text-[11px] font-bold uppercase tracking-[0.18em] text-lux-muted dark:text-lux-slate"></p>
+        <button id="modalClose" type="button" class="btn-icon text-xl" aria-label="Close project details">×</button>
+      </div>
+
+      <h3 id="modalTitle" class="mb-3 text-2xl font-semibold tracking-[-0.03em]"></h3>
+      <p id="modalDesc" class="mb-7 text-sm leading-relaxed text-lux-muted dark:text-lux-slate"></p>
+
+      <div id="modalStack" class="mb-8 flex flex-wrap gap-2"></div>
+
+      <div id="modalActions" class="grid gap-3 border-t border-black/[0.06] pt-5 dark:border-white/[0.08] sm:grid-cols-2">
+        <a id="modalVisit" href="#" target="_blank" rel="noopener" class="btn-primary h-12 sm:h-12">
+          View Project
+        </a>
+
+        <a id="modalCode" href="#" target="_blank" rel="noopener" class="btn-secondary h-12 sm:h-12">
+          Source Code
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
-<script>
-'use strict';
-(() => {
-  const projects = [
-    {title:'FocusFlow Timer',year:'2026',type:'Web Application',source:'Utility',stack:['HTML5','CSS Variables','JS ES6+'],description:'A minimal, highly tracked focus architecture engineered specifically for long interactive work cycles.',url:'https://nazirnoor.github.io/Timer/',code:'https://github.com/nazirnoor/Timer'},
-    {title:'Premium Site Engine',year:'Production',type:'Architecture',source:'System',stack:['Fluid Units','DOM Synthesis','Engine Core'],description:'A pristine landing matrix optimized specifically against viewport mutations and responsive grid collisions.',url:'https://nazirnoor.github.io/site/',code:'https://github.com/nazirnoor/site'},
-    {title:'React UI Laboratory',year:'Active Spec',type:'Ecosystem',source:'React',stack:['React Hooks','Framer Libs','Data Nodes'],description:'An isolated experimental application space constructed to benchmark tracking boundaries across dynamic rendering view frames.',url:'',code:''},
-    {title:'Fluid Blueprint Grid',year:'Concept Model',type:'Framework',source:'Layout',stack:['Fluid Ratios','Micro-Metrics','CSS Grid'],description:'A functional web grid template matching strict typographic sizing formulas to dynamically handle spatial layouts.',url:'',code:''}
-  ];
+  <script>
+    "use strict";
 
-  const DOM = {
-    list: document.getElementById('list'), search: document.getElementById('search'), clear: document.getElementById('clear'),
-    stage: document.getElementById('stage'), content: document.getElementById('previewContent'),
-    ptype: document.getElementById('ptype'), pyear: document.getElementById('pyear'), ptitle: document.getElementById('ptitle'),
-    pdesc: document.getElementById('pdesc'), pstack: document.getElementById('pstack'), progress: document.getElementById('progress'),
-    nav: document.getElementById('nav'), theme: document.getElementById('themeBtn'), menu: document.getElementById('menuBtn'),
-    mobileMenu: document.getElementById('mobileMenu'), menuClose: document.getElementById('menuClose'), year: document.getElementById('year'),
-    modal: document.getElementById('projectModal'), modalClose: document.getElementById('modalClose'), modalType: document.getElementById('modalType'),
-    modalTitle: document.getElementById('modalTitle'), modalDesc: document.getElementById('modalDesc'), modalTags: document.getElementById('modalTags'),
-    modalVisit: document.getElementById('modalVisit'), modalCode: document.getElementById('modalCode'), dynamicFavicon: document.getElementById('dynamicFavicon')
-  };
+    (() => {
+      const projects = [
+        {
+          title: "FocusFlow Timer",
+          year: "2026",
+          type: "Web Application",
+          source: "Utility",
+          stack: ["HTML5", "CSS Variables", "JavaScript"],
+          description: "A minimal focus timer experience designed for long work sessions, clean interaction states, and distraction-free productivity.",
+          url: "https://nazirnoor.github.io/Timer/",
+          code: "https://github.com/nazirnoor/Timer"
+        },
+        {
+          title: "Premium Site Engine",
+          year: "Production",
+          type: "Architecture",
+          source: "System",
+          stack: ["Responsive Layout", "DOM Logic", "UI System"],
+          description: "A polished landing page system focused on viewport stability, responsive grid behavior, and premium visual composition.",
+          url: "https://nazirnoor.github.io/site/",
+          code: "https://github.com/nazirnoor/site"
+        },
+        {
+          title: "React UI Laboratory",
+          year: "Active",
+          type: "Ecosystem",
+          source: "React",
+          stack: ["React Hooks", "Components", "Motion"],
+          description: "An experimental interface lab for testing component behavior, state-driven UI patterns, and animated interaction models.",
+          url: "",
+          code: ""
+        },
+        {
+          title: "Fluid Blueprint Grid",
+          year: "Concept",
+          type: "Framework",
+          source: "Layout",
+          stack: ["CSS Grid", "Fluid Type", "Design Tokens"],
+          description: "A layout concept built around strict typographic rhythm, fluid spacing, and scalable responsive structure.",
+          url: "",
+          code: ""
+        }
+      ];
 
-  let activeIdx = -1;
-  let filteredProjects = [...projects];
+      const $ = (selector) => document.querySelector(selector);
 
-  const SVGS = {
-    sun: `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.07" x2="5.64" y2="17.66"/><line x1="18.36" y1="6.34" x2="19.78" y2="4.22"/></svg>`,
-    moon: `<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`
-  };
+      const DOM = {
+        progress: $("#progress"),
+        nav: $("#nav"),
+        year: $("#year"),
+        themeBtn: $("#themeBtn"),
+        dynamicFavicon: $("#dynamicFavicon"),
 
-  // Dynamic Favicon sync based on Theme
-  const syncFavicon = () => {
-    if (!DOM.dynamicFavicon) return;
-    const isDark = document.documentElement.classList.contains('dark');
-    const bg = isDark ? '%2309090b' : '%23f8f7f4';
-    const fg = isDark ? '%23f3f3f5' : '%23131314';
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="${bg}"/><text x="8" y="23" font-family="Arial" font-size="20" font-weight="800" fill="${fg}">N</text></svg>`;
-    DOM.dynamicFavicon.href = `data:image/svg+xml,${svg}`;
-  };
+        menuBtn: $("#menuBtn"),
+        mobileMenu: $("#mobileMenu"),
+        menuClose: $("#menuClose"),
 
-  const syncThemeUI = () => {
-    const isDark = document.documentElement.classList.contains('dark');
-    if (DOM.theme) DOM.theme.innerHTML = isDark ? SVGS.sun : SVGS.moon;
-    syncFavicon();
-  };
+        search: $("#search"),
+        clearSearch: $("#clearSearch"),
+        projectList: $("#projectList"),
 
-  // Theme switch logic
-  DOM.theme?.addEventListener('click', () => {
-    const isDark = document.documentElement.classList.contains('dark');
-    if (isDark) {
-      document.documentElement.classList.remove('dark');
-      localStorage.theme = 'light';
-    } else {
-      document.documentElement.classList.add('dark');
-      localStorage.theme = 'dark';
-    }
-    syncThemeUI();
-  });
+        previewType: $("#previewType"),
+        previewYear: $("#previewYear"),
+        previewTitle: $("#previewTitle"),
+        previewDesc: $("#previewDesc"),
+        previewStack: $("#previewStack"),
 
-  // Set initial theme and sync
-  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    document.documentElement.classList.add('dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-  }
-  syncThemeUI();
+        modal: $("#projectModal"),
+        modalClose: $("#modalClose"),
+        modalMeta: $("#modalMeta"),
+        modalTitle: $("#modalTitle"),
+        modalDesc: $("#modalDesc"),
+        modalStack: $("#modalStack"),
+        modalActions: $("#modalActions"),
+        modalVisit: $("#modalVisit"),
+        modalCode: $("#modalCode")
+      };
 
-  const createSafeNode = (tag, classes, text) => {
-    const el = document.createElement(tag);
-    if (classes) el.className = classes;
-    if (text) el.textContent = text;
-    return el;
-  };
+      let filteredProjects = [...projects];
+      let activeIndex = 0;
 
-  const drawLedgerCollection = () => {
-    const frame = document.createDocumentFragment();
-    if (!filteredProjects.length) {
-      const err = createSafeNode('li', 'p-10 text-center text-sm text-lux-slate dark:text-lux-muted font-medium', 'Zero log entities align with criteria.');
-      frame.appendChild(err); DOM.list.replaceChildren(frame); return;
-    }
-    
-    filteredProjects.forEach((item, idx) => {
-      const row = createSafeNode('li', `group grid grid-cols-[24px_1fr] gap-4 p-5 sm:p-6 rounded-2xl cursor-pointer transition-all duration-500 ease-lux-fluid border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lux-charcoal dark:focus-visible:ring-lux-chalk ${idx === activeIdx ? 'bg-white dark:bg-[#141415] border-lux-charcoal/15 dark:border-lux-chalk/20 shadow-lux-sm' : 'border-transparent hover:bg-white/50 dark:hover:bg-[#141415]/40'}`);
-      row.dataset.index = idx; row.tabIndex = 0; row.setAttribute('role', 'button');
-      
-      const num = createSafeNode('span', `text-[13px] font-mono pt-0.5 transition-colors ${idx === activeIdx ? 'text-lux-charcoal dark:text-lux-chalk font-medium' : 'text-lux-slate'}`, String(idx + 1).padStart(2, '0'));
-      const wrapper = createSafeNode('div', 'w-full');
-      const headerLine = createSafeNode('div', 'flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-4 mb-2');
-      
-      headerLine.append(
-        createSafeNode('h4', 'text-[15px] font-medium tracking-tight text-lux-charcoal dark:text-lux-chalk', item.title), 
-        createSafeNode('span', 'text-[10px] font-bold tracking-[0.1em] uppercase bg-lux-charcoal/[0.04] dark:bg-lux-chalk/[0.05] border border-lux-charcoal/[0.03] text-lux-muted dark:text-lux-slate px-2.5 py-0.5 rounded-full self-start sm:self-auto', item.source)
-      );
-      
-      const dynamicDesc = createSafeNode('div', `transition-all duration-500 ease-lux-fluid overflow-hidden ${idx === activeIdx ? 'max-h-[120px] opacity-100 mb-4' : 'max-h-0 opacity-0 group-hover:max-h-[120px] group-hover:opacity-100 group-hover:mb-4'}`);
-      dynamicDesc.append(createSafeNode('p', 'text-sm text-lux-muted dark:text-lux-slate font-light leading-relaxed', item.description));
-      
-      const tags = createSafeNode('div', 'flex flex-wrap gap-2');
-      item.stack.slice(0,3).forEach(tech => {
-        tags.append(createSafeNode('span', `text-[11px] font-medium px-2.5 py-1 rounded-full transition-all ${idx === activeIdx ? 'bg-lux-linen dark:bg-lux-obsidian border border-lux-charcoal/5 text-lux-charcoal dark:text-lux-chalk' : 'bg-lux-charcoal/[0.03] dark:bg-lux-chalk/[0.03] text-lux-muted'}`, tech));
+      const icons = {
+        sun: `
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+        `,
+        moon: `
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"></path>
+          </svg>
+        `
+      };
+
+      const isMobile = () => window.innerWidth < 1024;
+
+      const createEl = (tag, className, text) => {
+        const element = document.createElement(tag);
+        if (className) element.className = className;
+        if (text !== undefined) element.textContent = text;
+        return element;
+      };
+
+      const setFavicon = () => {
+        if (!DOM.dynamicFavicon) return;
+
+        const isDark = document.documentElement.classList.contains("dark");
+        const bg = isDark ? "#09090b" : "#f8f7f4";
+        const fg = isDark ? "#f3f3f5" : "#131314";
+
+        const svg = `
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+            <rect width="32" height="32" rx="8" fill="${bg}"/>
+            <text x="8" y="23" font-family="Arial" font-size="20" font-weight="800" fill="${fg}">N</text>
+          </svg>
+        `;
+
+        DOM.dynamicFavicon.href = `data:image/svg+xml,${encodeURIComponent(svg)}`;
+      };
+
+      const syncThemeUI = () => {
+        const isDark = document.documentElement.classList.contains("dark");
+        if (DOM.themeBtn) DOM.themeBtn.innerHTML = isDark ? icons.sun : icons.moon;
+        setFavicon();
+      };
+
+      const toggleTheme = () => {
+        const isDark = document.documentElement.classList.toggle("dark");
+        localStorage.theme = isDark ? "dark" : "light";
+        syncThemeUI();
+      };
+
+      const initTheme = () => {
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+        if (localStorage.theme === "dark" || (!("theme" in localStorage) && prefersDark)) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+
+        syncThemeUI();
+      };
+
+      const openSheet = (sheet) => {
+        if (!sheet) return;
+
+        sheet.classList.remove("hidden");
+        sheet.classList.add("flex");
+
+        requestAnimationFrame(() => {
+          sheet.classList.remove("opacity-0", "pointer-events-none");
+          sheet.classList.add("opacity-100");
+
+          const panel = sheet.firstElementChild;
+          if (panel) panel.classList.remove("translate-y-full");
+        });
+
+        sheet.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      };
+
+      const closeSheet = (sheet) => {
+        if (!sheet) return;
+
+        sheet.classList.remove("opacity-100");
+        sheet.classList.add("opacity-0", "pointer-events-none");
+        sheet.setAttribute("aria-hidden", "true");
+
+        const panel = sheet.firstElementChild;
+        if (panel) panel.classList.add("translate-y-full");
+
+        window.setTimeout(() => {
+          sheet.classList.remove("flex");
+          sheet.classList.add("hidden");
+        }, 320);
+
+        document.body.style.overflow = "";
+      };
+
+      const closeAllSheets = () => {
+        closeSheet(DOM.mobileMenu);
+        closeSheet(DOM.modal);
+
+        if (DOM.menuBtn) {
+          DOM.menuBtn.setAttribute("aria-expanded", "false");
+        }
+      };
+
+      const renderTags = (container, stack, variant = "default") => {
+        if (!container) return;
+
+        container.replaceChildren();
+
+        stack.forEach((tag) => {
+          const className =
+            variant === "preview"
+              ? "rounded-full border border-black/10 bg-white/80 px-3 py-1 text-[11px] font-medium text-lux-muted dark:border-white/10 dark:bg-white/[0.05] dark:text-lux-slate"
+              : "rounded-full border border-black/10 bg-black/[0.03] px-3 py-1 text-[11px] font-medium text-lux-muted dark:border-white/10 dark:bg-white/[0.05] dark:text-lux-slate";
+
+          container.append(createEl("span", className, tag));
+        });
+      };
+
+      const updatePreview = (index) => {
+        const project = filteredProjects[index];
+        if (!project) return;
+
+        activeIndex = index;
+
+        DOM.previewType.textContent = project.type;
+        DOM.previewYear.textContent = project.year;
+        DOM.previewTitle.textContent = project.title;
+        DOM.previewDesc.textContent = project.description;
+
+        renderTags(DOM.previewStack, project.stack, "preview");
+      };
+
+      const openProjectModal = (index) => {
+        const project = filteredProjects[index];
+        if (!project) return;
+
+        DOM.modalMeta.textContent = `${project.type} — ${project.year}`;
+        DOM.modalTitle.textContent = project.title;
+        DOM.modalDesc.textContent = project.description;
+
+        renderTags(DOM.modalStack, project.stack);
+
+        if (project.url) {
+          DOM.modalVisit.href = project.url;
+          DOM.modalVisit.style.display = "";
+        } else {
+          DOM.modalVisit.style.display = "none";
+        }
+
+        if (project.code) {
+          DOM.modalCode.href = project.code;
+          DOM.modalCode.style.display = "";
+        } else {
+          DOM.modalCode.style.display = "none";
+        }
+
+        DOM.modalActions.style.display = project.url || project.code ? "grid" : "none";
+
+        openSheet(DOM.modal);
+      };
+
+      const renderProjects = () => {
+        const fragment = document.createDocumentFragment();
+
+        if (!filteredProjects.length) {
+          const empty = createEl(
+            "li",
+            "rounded-[1.5rem] border border-black/[0.06] bg-white/70 p-8 text-center text-sm text-lux-muted shadow-soft backdrop-blur-xl dark:border-white/[0.08] dark:bg-white/[0.04] dark:text-lux-slate",
+            "No projects matched your search."
+          );
+
+          fragment.append(empty);
+          DOM.projectList.replaceChildren(fragment);
+          return;
+        }
+
+        filteredProjects.forEach((project, index) => {
+          const isActive = index === activeIndex;
+
+          const item = createEl(
+            "li",
+            `group cursor-pointer rounded-[1.35rem] border p-5 transition-all duration-300 active:scale-[0.985] sm:rounded-[1.5rem] sm:p-6 ${
+              isActive
+                ? "border-black/10 bg-white shadow-soft dark:border-white/[0.12] dark:bg-white/[0.06]"
+                : "border-black/[0.06] bg-white/65 shadow-[0_8px_24px_rgba(0,0,0,0.04)] hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_14px_40px_rgba(0,0,0,0.08)] dark:border-white/[0.08] dark:bg-white/[0.04] dark:hover:bg-white/[0.07]"
+            }`
+          );
+
+          item.tabIndex = 0;
+          item.setAttribute("role", "button");
+          item.setAttribute("aria-label", `Open ${project.title}`);
+          item.dataset.index = index;
+
+          const top = createEl("div", "mb-3 flex items-start justify-between gap-4");
+          const titleWrap = createEl("div");
+
+          titleWrap.append(
+            createEl("p", "mb-1 text-[11px] font-bold uppercase tracking-[0.16em] text-lux-slate", project.source),
+            createEl("h3", "text-lg font-semibold tracking-[-0.02em]", project.title)
+          );
+
+          top.append(
+            titleWrap,
+            createEl("span", "shrink-0 rounded-full bg-emerald-500/10 px-3 py-1 text-[11px] font-bold text-emerald-600 dark:text-emerald-400", project.year)
+          );
+
+          const desc = createEl(
+            "p",
+            "mb-4 text-sm leading-relaxed text-lux-muted dark:text-lux-slate",
+            project.description
+          );
+
+          const tags = createEl("div", "flex flex-wrap gap-2");
+
+          project.stack.slice(0, 3).forEach((tag) => {
+            tags.append(
+              createEl(
+                "span",
+                "rounded-full bg-black/[0.04] px-3 py-1 text-[11px] font-medium text-lux-muted dark:bg-white/[0.05] dark:text-lux-slate",
+                tag
+              )
+            );
+          });
+
+          item.append(top, desc, tags);
+          fragment.append(item);
+        });
+
+        DOM.projectList.replaceChildren(fragment);
+
+        if (!isMobile()) {
+          updatePreview(Math.min(activeIndex, filteredProjects.length - 1));
+        }
+      };
+
+      const filterProjects = () => {
+        const query = DOM.search.value.trim().toLowerCase();
+
+        filteredProjects = projects.filter((project) => {
+          return (
+            project.title.toLowerCase().includes(query) ||
+            project.description.toLowerCase().includes(query) ||
+            project.type.toLowerCase().includes(query) ||
+            project.source.toLowerCase().includes(query) ||
+            project.stack.some((tag) => tag.toLowerCase().includes(query))
+          );
+        });
+
+        activeIndex = 0;
+        DOM.clearSearch.style.display = query ? "flex" : "none";
+        renderProjects();
+      };
+
+      const handleScroll = () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const percentage = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+
+        DOM.progress.style.width = `${percentage}%`;
+
+        if (scrollTop > 10) {
+          DOM.nav.classList.add(
+            "bg-lux-linen/80",
+            "dark:bg-lux-obsidian/80",
+            "backdrop-blur-2xl",
+            "border-black/[0.06]",
+            "dark:border-white/[0.08]"
+          );
+        } else {
+          DOM.nav.classList.remove(
+            "bg-lux-linen/80",
+            "dark:bg-lux-obsidian/80",
+            "backdrop-blur-2xl",
+            "border-black/[0.06]",
+            "dark:border-white/[0.08]"
+          );
+        }
+
+        document.querySelectorAll(".reveal").forEach((element) => {
+          const rect = element.getBoundingClientRect();
+
+          if (rect.top <= window.innerHeight - 90) {
+            element.classList.add("visible");
+          }
+        });
+      };
+
+      DOM.themeBtn?.addEventListener("click", toggleTheme);
+
+      DOM.menuBtn?.addEventListener("click", () => {
+        DOM.menuBtn.setAttribute("aria-expanded", "true");
+        openSheet(DOM.mobileMenu);
       });
-      
-      wrapper.append(headerLine, dynamicDesc, tags); row.append(num, wrapper); frame.appendChild(row);
-    });
-    DOM.list.replaceChildren(frame);
-  };
 
-  const mobileCheck = () => window.innerWidth < 1024;
-
-  const synchronisePreviewDeck = (idx, openModalViewport = false) => {
-    if (!filteredProjects[idx]) return;
-    activeIdx = idx; 
-    const data = filteredProjects[idx];
-    
-    if (mobileCheck() && openModalViewport) {
-      DOM.modalTitle.textContent = data.title;
-      DOM.modalDesc.textContent = data.description;
-      DOM.modalType.textContent = `${data.type} — ${data.year}`;
-      DOM.modalTags.replaceChildren();
-      data.stack.forEach(tech => {
-        DOM.modalTags.append(createSafeNode('span', 'text-[11px] font-medium bg-lux-charcoal/[0.04] dark:bg-lux-chalk/[0.05] border border-lux-charcoal/5 dark:border-lux-chalk/5 text-lux-muted px-2.5 py-1 rounded-full', tech));
+      DOM.menuClose?.addEventListener("click", () => {
+        DOM.menuBtn.setAttribute("aria-expanded", "false");
+        closeSheet(DOM.mobileMenu);
       });
-      
-      if (data.url) { DOM.modalVisit.href = data.url; DOM.modalVisit.parentElement.style.display = ''; } 
-      else { DOM.modalVisit.parentElement.style.display = 'none'; }
-      
-      if (data.code) { DOM.modalCode.href = data.code; DOM.modalCode.style.display = ''; } 
-      else { DOM.modalCode.style.display = 'none'; }
-      
-      DOM.modal.classList.remove('pointer-events-none', 'opacity-0');
-      DOM.modal.classList.add('opacity-100');
-      DOM.modal.firstElementChild.classList.remove('translate-y-full');
-      DOM.modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    } else {
-      DOM.ptype.textContent = data.type;
-      DOM.pyear.textContent = data.year;
-      DOM.ptitle.textContent = data.title;
-      DOM.pdesc.textContent = data.description;
-      DOM.pstack.replaceChildren();
-      data.stack.forEach(tech => {
-        DOM.pstack.append(createSafeNode('span', 'text-[11px] font-medium bg-white/80 dark:bg-[#141415]/80 border border-lux-charcoal/10 dark:border-lux-chalk/12 text-lux-muted dark:text-lux-slate px-2.5 py-1 rounded-full shadow-lux-sm', tech));
+
+      document.querySelectorAll(".mobileNavLink").forEach((link) => {
+        link.addEventListener("click", () => {
+          DOM.menuBtn.setAttribute("aria-expanded", "false");
+          closeSheet(DOM.mobileMenu);
+        });
       });
-      DOM.stage.className = "spotlight-mask relative min-h-[460px] p-10 border border-lux-charcoal/[0.04] dark:border-lux-chalk/[0.05] bg-lux-linen dark:bg-lux-obsidian rounded-2xl flex flex-col justify-between overflow-hidden transition-all duration-300";
-    }
-    drawLedgerCollection();
-  };
 
-  // Event Listeners for Ledger List Interaction
-  DOM.list.addEventListener('click', (e) => {
-    const item = e.target.closest('li');
-    if (!item) return;
-    const idx = parseInt(item.dataset.index, 10);
-    synchronisePreviewDeck(idx, mobileCheck());
-  });
+      DOM.mobileMenu?.addEventListener("click", (event) => {
+        if (event.target === DOM.mobileMenu) {
+          DOM.menuBtn.setAttribute("aria-expanded", "false");
+          closeSheet(DOM.mobileMenu);
+        }
+      });
 
-  DOM.list.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      const item = e.target.closest('li');
-      if (!item) return;
-      const idx = parseInt(item.dataset.index, 10);
-      synchronisePreviewDeck(idx, mobileCheck());
-    }
-  });
+      DOM.modal?.addEventListener("click", (event) => {
+        if (event.target === DOM.modal) {
+          closeSheet(DOM.modal);
+        }
+      });
 
-  // Filtering System Logic
-  DOM.search.addEventListener('input', (e) => {
-    const val = e.target.value.trim().toLowerCase();
-    filteredProjects = projects.filter(p => 
-      p.title.toLowerCase().includes(val) || 
-      p.description.toLowerCase().includes(val) || 
-      p.stack.some(t => t.toLowerCase().includes(val))
-    );
-    DOM.clear.style.display = val.length ? 'flex' : 'none';
-    activeIdx = filteredProjects.length ? 0 : -1;
-    drawLedgerCollection();
-    if (activeIdx !== -1 && !mobileCheck()) synchronisePreviewDeck(0);
-  });
+      DOM.modalClose?.addEventListener("click", () => closeSheet(DOM.modal));
 
-  DOM.clear.addEventListener('click', () => {
-    DOM.search.value = '';
-    filteredProjects = [...projects];
-    DOM.clear.style.display = 'none';
-    activeIdx = -1;
-    drawLedgerCollection();
-    if (!mobileCheck() && filteredProjects.length) synchronisePreviewDeck(0);
-  });
+      DOM.projectList.addEventListener("click", (event) => {
+        const item = event.target.closest("li[data-index]");
+        if (!item) return;
 
-  // Mobile Menu & Modal Actions
-  DOM.menu.addEventListener('click', () => {
-    DOM.mobileMenu.classList.remove('pointer-events-none', 'opacity-0');
-    DOM.mobileMenu.classList.add('opacity-100');
-    DOM.mobileMenu.firstElementChild.classList.remove('translate-y-full');
-    DOM.mobileMenu.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  });
+        const index = Number(item.dataset.index);
+        activeIndex = index;
 
-  const closeModals = () => {
-    DOM.mobileMenu.classList.add('opacity-0');
-    DOM.mobileMenu.classList.pointerEventsNone = true;
-    setTimeout(() => DOM.mobileMenu.classList.add('pointer-events-none'), 500);
-    DOM.mobileMenu.firstElementChild.classList.add('translate-y-full');
-    DOM.mobileMenu.setAttribute('aria-hidden', 'true');
+        if (isMobile()) {
+          openProjectModal(index);
+        } else {
+          updatePreview(index);
+          renderProjects();
+        }
+      });
 
-    DOM.modal.classList.add('opacity-0');
-    setTimeout(() => DOM.modal.classList.add('pointer-events-none'), 500);
-    DOM.modal.firstElementChild.classList.add('translate-y-full');
-    DOM.modal.setAttribute('aria-hidden', 'true');
+      DOM.projectList.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter" && event.key !== " ") return;
 
-    document.body.style.overflow = '';
-  };
+        const item = event.target.closest("li[data-index]");
+        if (!item) return;
 
-  DOM.menuClose.addEventListener('click', closeModals);
-  DOM.modalClose.addEventListener('click', closeModals);
+        event.preventDefault();
 
-  // Scroll Progress and Reveal Elements
-  window.addEventListener('scroll', () => {
-    const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
-    DOM.progress.style.width = scrolled + '%';
+        const index = Number(item.dataset.index);
+        activeIndex = index;
 
-    document.querySelectorAll('.reveal-elem').forEach(elem => {
-      const rect = elem.getBoundingClientRect();
-      if (rect.top <= window.innerHeight - 100) elem.classList.add('is-visible');
-    });
-  }, { passive: true });
+        if (isMobile()) {
+          openProjectModal(index);
+        } else {
+          updatePreview(index);
+          renderProjects();
+        }
+      });
 
-  DOM.year.textContent = new Date().getFullYear();
+      DOM.search.addEventListener("input", filterProjects);
 
-  // Initialization
-  drawLedgerCollection();
-  if (!mobileCheck() && projects.length) synchronisePreviewDeck(0);
+      DOM.clearSearch.addEventListener("click", () => {
+        DOM.search.value = "";
+        filterProjects();
+        DOM.search.focus();
+      });
 
-})();
-</script>
+      window.addEventListener("scroll", handleScroll, { passive: true });
+      window.addEventListener("resize", renderProjects);
+
+      window.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeAllSheets();
+      });
+
+      DOM.year.textContent = new Date().getFullYear();
+
+      initTheme();
+      renderProjects();
+      handleScroll();
+    })();
+  </script>
 </body>
-</html>
+  </html>
