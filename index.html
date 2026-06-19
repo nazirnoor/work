@@ -1,26 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-
   <title>Nazir Noori — UI & Front-End Architecture</title>
-  <meta name="description" content="Portfolio of Nazir Noori, focused on responsive UI, front-end architecture, and polished digital interfaces." />
+  <meta name="description" content="Portfolio of Nazir Noori, focused on responsive UI, front-end architecture, polished digital products, and modern interactive interfaces." />
 
-  <link
-    id="dynamicFavicon"
-    rel="icon"
-    type="image/svg+xml"
-    href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%23f8f7f4%22/%3E%3Ctext%20x%3D%228%22%20y%3D%2223%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%20font-weight%3D%22800%22%20fill%3D%22%23131314%22%3EN%3C/text%3E%3C/svg%3E"
-  />
+  <link id="dynamicFavicon" rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%23f8f7f4%22/%3E%3Ctext%20x%3D%228%22%20y%3D%2223%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%20font-weight%3D%22800%22%20fill%3D%22%23131314%22%3EN%3C/text%3E%3C/svg%3E" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
-
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
 
   <script>
@@ -40,19 +31,13 @@
             }
           },
           fontFamily: {
-            sans: [
-              '"Plus Jakarta Sans"',
-              "system-ui",
-              "-apple-system",
-              "BlinkMacSystemFont",
-              "Segoe UI",
-              "sans-serif"
-            ]
+            sans: ['"Plus Jakarta Sans"', "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"]
           },
           boxShadow: {
             soft: "0 10px 30px rgba(15, 23, 42, 0.06)",
             lift: "0 18px 45px rgba(15, 23, 42, 0.10)",
-            glow: "0 24px 80px rgba(16, 185, 129, 0.16)"
+            glow: "0 24px 80px rgba(16, 185, 129, 0.16)",
+            deep: "0 30px 100px rgba(15, 23, 42, 0.16)"
           },
           transitionTimingFunction: {
             fluid: "cubic-bezier(0.16, 1, 0.3, 1)"
@@ -64,870 +49,220 @@
 
   <style type="text/tailwindcss">
     @layer base {
-      html {
-        -webkit-text-size-adjust: 100%;
-        text-rendering: geometricPrecision;
-      }
-
-      body {
-        min-height: 100dvh;
-      }
-
-      ::selection {
-        background: rgba(16, 185, 129, 0.22);
-      }
-
-      button,
-      a {
-        -webkit-tap-highlight-color: transparent;
-      }
+      html { -webkit-text-size-adjust: 100%; text-rendering: geometricPrecision; }
+      body { min-height: 100dvh; }
+      ::selection { background: rgba(16, 185, 129, 0.22); }
+      button, a, input { -webkit-tap-highlight-color: transparent; }
     }
 
     @layer components {
-      .glass {
-        @apply border border-black/[0.06] bg-white/70 backdrop-blur-2xl dark:border-white/[0.08] dark:bg-white/[0.04];
-      }
-
-      .btn-primary {
-        @apply inline-flex h-12 sm:h-14 items-center justify-center rounded-2xl bg-lux-charcoal px-6 sm:px-7 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(0,0,0,0.14)] transition-all duration-300 ease-fluid hover:-translate-y-0.5 hover:shadow-[0_18px_45px_rgba(0,0,0,0.18)] active:translate-y-0 active:scale-[0.98] dark:bg-lux-chalk dark:text-lux-charcoal;
-      }
-
-      .btn-secondary {
-        @apply inline-flex h-12 sm:h-14 items-center justify-center rounded-2xl border border-black/10 bg-white/75 px-6 sm:px-7 text-sm font-semibold text-lux-charcoal shadow-[0_8px_24px_rgba(0,0,0,0.06)] backdrop-blur-xl transition-all duration-300 ease-fluid hover:-translate-y-0.5 hover:border-black/20 hover:bg-white hover:shadow-[0_14px_36px_rgba(0,0,0,0.08)] active:translate-y-0 active:scale-[0.98] dark:border-white/10 dark:bg-white/[0.06] dark:text-lux-chalk dark:hover:bg-white/[0.09];
-      }
-
-      .btn-icon {
-        @apply inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-black/10 bg-white/75 text-lux-muted shadow-[0_8px_24px_rgba(0,0,0,0.05)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:text-lux-charcoal active:scale-[0.96] dark:border-white/10 dark:bg-white/[0.06] dark:text-lux-slate dark:hover:text-lux-chalk;
-      }
-
-      .btn-menu {
-        @apply inline-flex h-10 items-center justify-center rounded-2xl border border-black/10 bg-white/75 px-4 text-sm font-semibold text-lux-charcoal shadow-[0_8px_24px_rgba(0,0,0,0.05)] backdrop-blur-xl transition-all duration-300 active:scale-[0.96] dark:border-white/10 dark:bg-white/[0.06] dark:text-lux-chalk;
-      }
-
-      .btn-mobile-link {
-        @apply flex h-14 items-center justify-between rounded-2xl border border-black/10 bg-black/[0.03] px-5 text-sm font-semibold text-lux-charcoal transition-all duration-300 active:scale-[0.98] dark:border-white/10 dark:bg-white/[0.05] dark:text-lux-chalk;
-      }
-
-      .mobile-sheet {
-        @apply w-full max-w-lg rounded-t-[2rem] border-t border-black/10 bg-white p-5 shadow-2xl dark:border-white/10 dark:bg-[#111113] sm:p-8 max-h-[88dvh] overflow-y-auto;
-        padding-bottom: calc(2rem + env(safe-area-inset-bottom));
-      }
-
-      .reveal {
-        opacity: 0;
-        transform: translateY(18px);
-        transition:
-          opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
-          transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
-      }
-
-      .reveal.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      .glass { @apply border border-black/[0.06] bg-white/70 backdrop-blur-2xl dark:border-white/[0.08] dark:bg-white/[0.04]; }
+      .glass-strong { @apply border border-black/[0.08] bg-white/85 backdrop-blur-2xl dark:border-white/[0.10] dark:bg-white/[0.06]; }
+      .btn-primary { @apply inline-flex h-12 sm:h-14 items-center justify-center rounded-2xl bg-lux-charcoal px-6 sm:px-7 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(0,0,0,0.14)] transition-all duration-300 ease-fluid hover:-translate-y-0.5 hover:shadow-[0_18px_45px_rgba(0,0,0,0.18)] active:translate-y-0 active:scale-[0.98] dark:bg-lux-chalk dark:text-lux-charcoal; }
+      .btn-secondary { @apply inline-flex h-12 sm:h-14 items-center justify-center rounded-2xl border border-black/10 bg-white/75 px-6 sm:px-7 text-sm font-semibold text-lux-charcoal shadow-[0_8px_24px_rgba(0,0,0,0.06)] backdrop-blur-xl transition-all duration-300 ease-fluid hover:-translate-y-0.5 hover:border-black/20 hover:bg-white hover:shadow-[0_14px_36px_rgba(0,0,0,0.08)] active:translate-y-0 active:scale-[0.98] dark:border-white/10 dark:bg-white/[0.06] dark:text-lux-chalk dark:hover:bg-white/[0.09]; }
+      .btn-icon { @apply inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-black/10 bg-white/75 text-lux-muted shadow-[0_8px_24px_rgba(0,0,0,0.05)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:text-lux-charcoal active:scale-[0.96] dark:border-white/10 dark:bg-white/[0.06] dark:text-lux-slate dark:hover:text-lux-chalk; }
+      .btn-menu { @apply inline-flex h-10 items-center justify-center rounded-2xl border border-black/10 bg-white/75 px-4 text-sm font-semibold text-lux-charcoal shadow-[0_8px_24px_rgba(0,0,0,0.05)] backdrop-blur-xl transition-all duration-300 active:scale-[0.96] dark:border-white/10 dark:bg-white/[0.06] dark:text-lux-chalk; }
+      .nav-link { @apply rounded-full px-4 py-2 text-sm font-medium text-lux-muted transition hover:text-lux-charcoal dark:text-lux-slate dark:hover:text-lux-chalk; }
+      .nav-link.active { @apply bg-black/[0.04] text-lux-charcoal dark:bg-white/[0.07] dark:text-lux-chalk; }
+      .mobile-sheet { @apply w-full max-w-lg rounded-t-[2rem] border-t border-black/10 bg-white p-5 shadow-2xl dark:border-white/10 dark:bg-[#111113] sm:p-8 max-h-[88dvh] overflow-y-auto; padding-bottom: calc(2rem + env(safe-area-inset-bottom)); }
+      .mobile-link { @apply flex h-14 items-center justify-between rounded-2xl border border-black/10 bg-black/[0.03] px-5 text-sm font-semibold text-lux-charcoal transition-all duration-300 active:scale-[0.98] dark:border-white/10 dark:bg-white/[0.05] dark:text-lux-chalk; }
+      .reveal { opacity: 0; transform: translateY(22px); transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1), transform 800ms cubic-bezier(0.16, 1, 0.3, 1); }
+      .reveal.visible { opacity: 1; transform: translateY(0); }
+      .filter-chip { @apply inline-flex h-10 items-center justify-center rounded-full border border-black/10 bg-white/70 px-4 text-xs font-semibold text-lux-muted shadow-[0_8px_24px_rgba(0,0,0,0.04)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:text-lux-charcoal dark:border-white/10 dark:bg-white/[0.05] dark:text-lux-slate dark:hover:text-white; }
+      .filter-chip.active { @apply border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300; }
+      .command-item { @apply flex w-full items-center justify-between rounded-2xl px-4 py-3 text-left transition hover:bg-black/[0.04] dark:hover:bg-white/[0.06]; }
     }
 
     @layer utilities {
-      .text-balance {
-        text-wrap: balance;
-      }
-
-      .text-pretty {
-        text-wrap: pretty;
-      }
-
-      .no-scrollbar::-webkit-scrollbar {
-        display: none;
-      }
-
-      .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
+      .text-balance { text-wrap: balance; }
+      .text-pretty { text-wrap: pretty; }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     }
 
     body {
       background-image:
-        radial-gradient(circle at top center, rgba(16, 185, 129, 0.11), transparent 34rem),
+        radial-gradient(circle at 18% 8%, rgba(16, 185, 129, 0.14), transparent 30rem),
+        radial-gradient(circle at 82% 4%, rgba(20, 184, 166, 0.12), transparent 26rem),
+        radial-gradient(circle at 50% 100%, rgba(16, 185, 129, 0.08), transparent 30rem),
         linear-gradient(to bottom, rgba(255, 255, 255, 0.78), transparent 22rem);
     }
-
     .dark body {
       background-image:
-        radial-gradient(circle at top center, rgba(16, 185, 129, 0.10), transparent 34rem),
+        radial-gradient(circle at 18% 8%, rgba(16, 185, 129, 0.12), transparent 30rem),
+        radial-gradient(circle at 82% 4%, rgba(20, 184, 166, 0.10), transparent 26rem),
+        radial-gradient(circle at 50% 100%, rgba(16, 185, 129, 0.08), transparent 30rem),
         linear-gradient(to bottom, rgba(255, 255, 255, 0.04), transparent 22rem);
     }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.001ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.001ms !important;
-        scroll-behavior: auto !important;
-      }
-    }
+    .spotlight { position: fixed; inset: 0; pointer-events: none; z-index: 1; background: radial-gradient(520px circle at var(--x, 50%) var(--y, 20%), rgba(16, 185, 129, 0.13), transparent 42%); opacity: 0.85; transition: opacity 300ms ease; }
+    .grain { position: fixed; inset: 0; z-index: 2; pointer-events: none; opacity: 0.035; background-image: radial-gradient(circle at 25% 35%, #000 0 1px, transparent 1px), radial-gradient(circle at 75% 65%, #000 0 1px, transparent 1px); background-size: 64px 64px, 91px 91px; animation: grain 0.8s steps(2) infinite; }
+    .dark .grain { opacity: 0.055; filter: invert(1); }
+    @keyframes grain { 50% { transform: translate(7px, -5px); } }
+    .hero-orb { animation: floatOrb 7s ease-in-out infinite; }
+    @keyframes floatOrb { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-16px) rotate(4deg); } }
+    .marquee-track { animation: marquee 28s linear infinite; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .project-card { transform-style: preserve-3d; }
+    .project-card::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: radial-gradient(500px circle at var(--mx, 50%) var(--my, 50%), rgba(16, 185, 129, 0.16), transparent 42%); opacity: 0; transition: opacity 300ms ease; pointer-events: none; }
+    .project-card:hover::before { opacity: 1; }
+    .modal-open { overflow: hidden; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; } }
   </style>
 </head>
 
 <body class="overflow-x-hidden bg-lux-linen font-sans text-lux-charcoal antialiased transition-colors duration-500 dark:bg-lux-obsidian dark:text-lux-chalk">
+  <canvas id="heroCanvas" class="fixed inset-0 z-0 pointer-events-none opacity-70"></canvas>
+  <div class="spotlight"></div>
+  <div class="grain"></div>
 
-  <div
-    id="progress"
-    class="fixed left-0 top-0 z-[90] h-[2px] bg-lux-charcoal transition-[width] duration-100 dark:bg-lux-chalk"
-    style="width: 0%"
-  ></div>
+  <div id="progress" class="fixed left-0 top-0 z-[100] h-[2px] bg-lux-charcoal transition-[width] duration-100 dark:bg-lux-chalk" style="width: 0%"></div>
 
-  <!-- Header -->
+  <div id="toast" class="pointer-events-none fixed left-1/2 top-5 z-[120] -translate-x-1/2 -translate-y-4 rounded-full border border-black/10 bg-white/90 px-4 py-2 text-xs font-semibold text-lux-charcoal opacity-0 shadow-lift backdrop-blur-2xl transition-all duration-300 dark:border-white/10 dark:bg-[#111113]/90 dark:text-lux-chalk">Copied</div>
+
   <header id="nav" class="sticky top-0 z-50 border-b border-transparent transition-all duration-300">
-    <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:h-20 sm:px-6 lg:px-12">
-      <a
-        href="#top"
-        class="flex items-center gap-3 rounded-2xl px-1 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
-        aria-label="Return home"
-      >
-        <span class="h-2.5 w-2.5 rounded-full bg-emerald-500 shadow-[0_0_14px_rgba(16,185,129,0.7)]"></span>
+    <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-20 sm:px-6 lg:px-12">
+      <a href="#top" class="flex items-center gap-3 rounded-2xl px-1 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500" aria-label="Return home">
+        <span class="relative flex h-3 w-3"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70"></span><span class="relative inline-flex h-3 w-3 rounded-full bg-emerald-500 shadow-[0_0_14px_rgba(16,185,129,0.7)]"></span></span>
         <span class="text-sm font-bold tracking-[0.16em] sm:text-base">NAZIR NOORI</span>
       </a>
 
-      <nav class="hidden items-center gap-2 sm:flex" aria-label="Main navigation">
-        <a href="#focus" class="rounded-full px-4 py-2 text-sm font-medium text-lux-muted transition hover:text-lux-charcoal dark:text-lux-slate dark:hover:text-lux-chalk">Focus</a>
-        <a href="#work" class="rounded-full px-4 py-2 text-sm font-medium text-lux-muted transition hover:text-lux-charcoal dark:text-lux-slate dark:hover:text-lux-chalk">Work</a>
-        <a href="#contact" class="rounded-full px-4 py-2 text-sm font-medium text-lux-muted transition hover:text-lux-charcoal dark:text-lux-slate dark:hover:text-lux-chalk">Contact</a>
+      <nav class="hidden items-center gap-1 md:flex" aria-label="Main navigation">
+        <a href="#focus" data-section-link="focus" class="nav-link">Focus</a>
+        <a href="#work" data-section-link="work" class="nav-link">Work</a>
+        <a href="#process" data-section-link="process" class="nav-link">Process</a>
+        <a href="#contact" data-section-link="contact" class="nav-link">Contact</a>
       </nav>
 
       <div class="flex items-center gap-2">
+        <button id="commandBtn" type="button" class="hidden sm:inline-flex h-10 items-center justify-center rounded-2xl border border-black/10 bg-white/75 px-4 text-xs font-semibold text-lux-muted shadow-[0_8px_24px_rgba(0,0,0,0.05)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:text-lux-charcoal dark:border-white/10 dark:bg-white/[0.06] dark:text-lux-slate dark:hover:text-lux-chalk" aria-label="Open command palette">⌘K</button>
         <button id="themeBtn" type="button" class="btn-icon" aria-label="Toggle theme"></button>
-
-        <button
-          id="menuBtn"
-          type="button"
-          class="btn-menu sm:hidden"
-          aria-expanded="false"
-          aria-controls="mobileMenu"
-        >
-          Menu
-        </button>
-
-        <a
-          href="mailto:nazir_noori@yahoo.com?subject=Project Inquiry — Portfolio Collaboration"
-          class="hidden sm:inline-flex h-10 items-center justify-center rounded-2xl bg-lux-charcoal px-5 text-sm font-semibold text-white shadow-[0_10px_26px_rgba(0,0,0,0.13)] transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.98] dark:bg-lux-chalk dark:text-lux-charcoal"
-        >
-          Get in Touch
-        </a>
+        <button id="menuBtn" type="button" class="btn-menu md:hidden" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+        <a href="mailto:nazir_noori@yahoo.com?subject=Project%20Inquiry%20%E2%80%94%20Portfolio%20Collaboration" class="hidden md:inline-flex h-10 items-center justify-center rounded-2xl bg-lux-charcoal px-5 text-sm font-semibold text-white shadow-[0_10px_26px_rgba(0,0,0,0.13)] transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.98] dark:bg-lux-chalk dark:text-lux-charcoal">Get in Touch</a>
       </div>
     </div>
   </header>
 
-  <main id="top" class="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-12">
+  <main id="top" class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-12">
+    <section class="relative pb-16 pt-12 sm:pb-24 sm:pt-24 lg:pt-28">
+      <div class="grid gap-10 lg:grid-cols-12 lg:items-end">
+        <div class="lg:col-span-8">
+          <div class="mb-8 inline-flex items-center gap-3 rounded-full border border-black/[0.06] bg-white/70 px-4 py-2 text-xs font-medium text-lux-muted shadow-soft backdrop-blur-xl dark:border-white/[0.08] dark:bg-white/[0.04] dark:text-lux-slate">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            Available for consultations
+          </div>
 
-    <!-- Hero -->
-    <section class="pb-16 pt-12 sm:pb-24 sm:pt-24 lg:pt-28">
-      <div class="mb-8 inline-flex items-center gap-3 rounded-full border border-black/[0.06] bg-white/70 px-4 py-2 text-xs font-medium text-lux-muted shadow-soft backdrop-blur-xl dark:border-white/[0.08] dark:bg-white/[0.04] dark:text-lux-slate">
-        <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-        Available for consultations
-      </div>
+          <h1 class="max-w-6xl text-[clamp(2.55rem,12vw,7.3rem)] font-semibold leading-[0.92] tracking-[-0.065em] text-balance">Engineered interfaces.<br /><span class="font-light text-lux-muted dark:text-lux-slate">Built to feel effortless.</span></h1>
+          <p class="mt-7 max-w-2xl text-base font-light leading-relaxed text-lux-muted text-pretty dark:text-lux-slate sm:text-xl">I design and build responsive web interfaces with clean architecture, fluid layouts, reusable systems, and polished interaction details.</p>
 
-      <h1 class="max-w-5xl text-[clamp(2.45rem,13vw,5.6rem)] font-semibold leading-[0.96] tracking-[-0.055em] text-balance">
-        Engineered interfaces.
-        <br />
-        <span class="font-light text-lux-muted dark:text-lux-slate">Built to feel effortless.</span>
-      </h1>
-
-      <p class="mt-6 max-w-2xl text-base font-light leading-relaxed text-lux-muted text-pretty dark:text-lux-slate sm:text-xl">
-        I design and build responsive web interfaces with clean front-end architecture, fluid layouts, reusable components, and polished interaction details.
-      </p>
-
-      <div class="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-        <a href="#work" class="btn-primary w-full sm:w-auto">
-          View Projects
-          <span class="ml-2">→</span>
-        </a>
-
-        <a href="https://github.com/nazirnoor" target="_blank" rel="noopener" class="btn-secondary w-full sm:w-auto">
-          GitHub
-          <span class="ml-2 opacity-60">↗</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- Focus -->
-    <section id="focus" class="reveal border-t border-black/[0.06] py-14 dark:border-white/[0.08] sm:py-24">
-      <div class="mb-8 sm:mb-12">
-        <p class="mb-3 text-[11px] font-bold uppercase tracking-[0.18em] text-lux-muted dark:text-lux-slate">
-          Core Focus
-        </p>
-        <h2 class="text-balance text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">
-          Modern front-end systems for clean digital products.
-        </h2>
-      </div>
-
-      <div class="grid gap-4 md:grid-cols-3">
-        <article class="glass rounded-[1.5rem] p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-glow sm:p-8">
-          <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-500/10 text-sm font-bold text-emerald-600 dark:text-emerald-400">01</div>
-          <h3 class="mb-3 text-lg font-semibold tracking-tight">Responsive UI</h3>
-          <p class="text-sm leading-relaxed text-lux-muted dark:text-lux-slate">
-            Fluid layouts, mobile-first sections, accessible spacing, and clean visual hierarchy across all devices.
-          </p>
-        </article>
-
-        <article class="glass rounded-[1.5rem] p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-glow sm:p-8">
-          <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-500/10 text-sm font-bold text-emerald-600 dark:text-emerald-400">02</div>
-          <h3 class="mb-3 text-lg font-semibold tracking-tight">Front-End Architecture</h3>
-          <p class="text-sm leading-relaxed text-lux-muted dark:text-lux-slate">
-            Reusable structure, component-driven thinking, semantic markup, and performance-conscious interaction logic.
-          </p>
-        </article>
-
-        <article class="glass rounded-[1.5rem] p-6 shadow-soft transition hover:-translate-y-1 hover:shadow-glow sm:p-8">
-          <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-500/10 text-sm font-bold text-emerald-600 dark:text-emerald-400">03</div>
-          <h3 class="mb-3 text-lg font-semibold tracking-tight">Polished UX</h3>
-          <p class="text-sm leading-relaxed text-lux-muted dark:text-lux-slate">
-            Subtle motion, clear states, mobile-friendly modals, accessible controls, and delightful interaction details.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- Work -->
-    <section id="work" class="reveal border-t border-black/[0.06] py-14 dark:border-white/[0.08] sm:py-24">
-      <div class="mb-8 flex flex-col gap-6 sm:mb-12 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <p class="mb-3 text-[11px] font-bold uppercase tracking-[0.18em] text-lux-muted dark:text-lux-slate">
-            Selected Work
-          </p>
-          <h2 class="text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">Project Archive</h2>
+          <div class="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+            <a href="#work" class="btn-primary w-full sm:w-auto">View Projects <span class="ml-2">→</span></a>
+            <a href="https://github.com/nazirnoor" target="_blank" rel="noopener" class="btn-secondary w-full sm:w-auto">GitHub <span class="ml-2 opacity-60">↗</span></a>
+            <button id="copyEmailHero" type="button" class="btn-secondary w-full sm:w-auto">Copy Email <span class="ml-2 opacity-60">⌘</span></button>
+          </div>
         </div>
 
-        <div class="relative w-full sm:w-80">
-          <input
-            id="search"
-            type="search"
-            placeholder="Search projects..."
-            class="h-12 w-full rounded-2xl border border-black/10 bg-white/75 px-5 pr-11 text-sm shadow-[0_8px_24px_rgba(0,0,0,0.05)] outline-none backdrop-blur-xl transition focus:border-lux-charcoal/30 dark:border-white/10 dark:bg-white/[0.05] dark:focus:border-white/30"
-            aria-label="Search projects"
-          />
-          <button
-            id="clearSearch"
-            type="button"
-            class="absolute right-4 top-1/2 hidden h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full text-lux-slate hover:text-lux-charcoal dark:hover:text-white"
-            aria-label="Clear search"
-          >
-            ×
-          </button>
-        </div>
-      </div>
-
-      <div class="grid gap-6 lg:grid-cols-12">
-        <ul id="projectList" class="grid gap-3 lg:col-span-7" aria-live="polite"></ul>
-
-        <aside class="hidden lg:block lg:col-span-5">
-          <div class="sticky top-28 rounded-[1.75rem] border border-black/[0.06] bg-white/70 p-3 shadow-soft backdrop-blur-2xl dark:border-white/[0.08] dark:bg-white/[0.04]">
-            <div class="flex min-h-[430px] flex-col justify-between rounded-[1.35rem] border border-black/[0.04] bg-lux-linen p-8 dark:border-white/[0.06] dark:bg-lux-obsidian">
-              <div>
-                <div class="mb-8 flex justify-between border-b border-black/[0.06] pb-5 text-[11px] font-bold uppercase tracking-[0.16em] text-lux-slate dark:border-white/[0.08]">
-                  <span id="previewType"></span>
-                  <span id="previewYear"></span>
-                </div>
-
-                <h3 id="previewTitle" class="mb-4 text-3xl font-semibold tracking-[-0.035em]"></h3>
-                <p id="previewDesc" class="text-sm leading-relaxed text-lux-muted dark:text-lux-slate"></p>
+        <aside class="lg:col-span-4">
+          <div class="hero-orb glass-strong relative overflow-hidden rounded-[2rem] p-5 shadow-glow">
+            <div class="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-emerald-500/20 blur-3xl"></div>
+            <div class="relative">
+              <div class="mb-6 flex items-center justify-between"><p class="text-[11px] font-bold uppercase tracking-[0.18em] text-lux-muted dark:text-lux-slate">Interface System</p><span class="rounded-full bg-emerald-500/10 px-3 py-1 text-[11px] font-bold text-emerald-600 dark:text-emerald-400">Live</span></div>
+              <div class="grid gap-3">
+                <div class="rounded-[1.4rem] border border-black/[0.06] bg-white/70 p-4 dark:border-white/[0.08] dark:bg-white/[0.05]"><div class="mb-3 flex items-center justify-between text-xs text-lux-muted dark:text-lux-slate"><span>Responsiveness</span><span>98%</span></div><div class="h-2 overflow-hidden rounded-full bg-black/[0.06] dark:bg-white/[0.08]"><div class="h-full w-[98%] rounded-full bg-emerald-500"></div></div></div>
+                <div class="rounded-[1.4rem] border border-black/[0.06] bg-white/70 p-4 dark:border-white/[0.08] dark:bg-white/[0.05]"><div class="mb-3 flex items-center justify-between text-xs text-lux-muted dark:text-lux-slate"><span>Motion Polish</span><span>94%</span></div><div class="h-2 overflow-hidden rounded-full bg-black/[0.06] dark:bg-white/[0.08]"><div class="h-full w-[94%] rounded-full bg-emerald-500"></div></div></div>
+                <div class="rounded-[1.4rem] border border-black/[0.06] bg-white/70 p-4 dark:border-white/[0.08] dark:bg-white/[0.05]"><div class="mb-3 flex items-center justify-between text-xs text-lux-muted dark:text-lux-slate"><span>Architecture</span><span>96%</span></div><div class="h-2 overflow-hidden rounded-full bg-black/[0.06] dark:bg-white/[0.08]"><div class="h-full w-[96%] rounded-full bg-emerald-500"></div></div></div>
               </div>
-
-              <div id="previewStack" class="flex flex-wrap gap-2 border-t border-black/[0.06] pt-6 dark:border-white/[0.08]"></div>
             </div>
           </div>
         </aside>
       </div>
+
+      <div class="mt-12 overflow-hidden rounded-full border border-black/[0.06] bg-white/55 py-3 backdrop-blur-2xl dark:border-white/[0.08] dark:bg-white/[0.04]"><div class="marquee-track flex w-max gap-10 whitespace-nowrap text-xs font-bold uppercase tracking-[0.18em] text-lux-slate"><span>Responsive UI</span><span>Front-End Architecture</span><span>Design Systems</span><span>Micro-Interactions</span><span>Accessibility</span><span>Performance</span><span>Responsive UI</span><span>Front-End Architecture</span><span>Design Systems</span><span>Micro-Interactions</span><span>Accessibility</span><span>Performance</span></div></div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="reveal py-14 sm:py-24">
-      <div class="relative overflow-hidden rounded-[2rem] bg-lux-charcoal px-6 py-16 text-center text-white shadow-lift dark:bg-white/[0.06] sm:p-20">
-        <div class="absolute inset-x-0 top-0 mx-auto h-64 max-w-2xl rounded-full bg-emerald-400/20 blur-3xl"></div>
+    <section class="reveal grid gap-4 border-t border-black/[0.06] py-10 dark:border-white/[0.08] sm:grid-cols-4">
+      <div class="glass rounded-[1.5rem] p-5"><p class="text-3xl font-semibold tracking-[-0.04em]"><span data-count="40">0</span>+</p><p class="mt-1 text-xs font-medium text-lux-muted dark:text-lux-slate">UI sections refined</p></div>
+      <div class="glass rounded-[1.5rem] p-5"><p class="text-3xl font-semibold tracking-[-0.04em]"><span data-count="100">0</span>%</p><p class="mt-1 text-xs font-medium text-lux-muted dark:text-lux-slate">Mobile-first mindset</p></div>
+      <div class="glass rounded-[1.5rem] p-5"><p class="text-3xl font-semibold tracking-[-0.04em]"><span data-count="12">0</span>ms</p><p class="mt-1 text-xs font-medium text-lux-muted dark:text-lux-slate">Interaction detail focus</p></div>
+      <div class="glass rounded-[1.5rem] p-5"><p class="text-3xl font-semibold tracking-[-0.04em]"><span data-count="4">0</span>x</p><p class="mt-1 text-xs font-medium text-lux-muted dark:text-lux-slate">Iteration velocity</p></div>
+    </section>
 
-        <div class="relative z-10">
-          <p class="mb-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/50">
-            Let’s Build
-          </p>
-
-          <h2 class="mb-5 text-balance text-3xl font-semibold tracking-[-0.04em] sm:text-5xl">
-            Have a project in mind?
-          </h2>
-
-          <p class="mx-auto mb-8 max-w-xl text-sm leading-relaxed text-white/60 sm:text-lg">
-            I’m available for front-end builds, responsive UI improvements, landing pages, and clean portfolio systems.
-          </p>
-
-          <a
-            href="mailto:nazir_noori@yahoo.com?subject=Project Inquiry — Portfolio Collaboration"
-            class="inline-flex h-12 items-center justify-center rounded-2xl bg-white px-7 text-sm font-semibold text-lux-charcoal shadow-[0_14px_36px_rgba(0,0,0,0.22)] transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.98] sm:h-14"
-          >
-            Email Me
-            <span class="ml-2">→</span>
-          </a>
-        </div>
+    <section id="focus" class="reveal border-t border-black/[0.06] py-14 dark:border-white/[0.08] sm:py-24">
+      <div class="mb-8 sm:mb-12"><p class="mb-3 text-[11px] font-bold uppercase tracking-[0.18em] text-lux-muted dark:text-lux-slate">Core Focus</p><h2 class="text-balance text-3xl font-semibold tracking-[-0.03em] sm:text-5xl">Modern front-end systems for clean digital products.</h2></div>
+      <div class="grid gap-4 md:grid-cols-3">
+        <article class="glass rounded-[1.7rem] p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-glow sm:p-8"><div class="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-500/10 text-sm font-bold text-emerald-600 dark:text-emerald-400">01</div><h3 class="mb-3 text-lg font-semibold tracking-tight">Responsive UI</h3><p class="text-sm leading-relaxed text-lux-muted dark:text-lux-slate">Fluid layouts, mobile-first sections, accessible spacing, and clean visual hierarchy across all devices.</p></article>
+        <article class="glass rounded-[1.7rem] p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-glow sm:p-8"><div class="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-500/10 text-sm font-bold text-emerald-600 dark:text-emerald-400">02</div><h3 class="mb-3 text-lg font-semibold tracking-tight">Front-End Architecture</h3><p class="text-sm leading-relaxed text-lux-muted dark:text-lux-slate">Reusable structure, component-driven thinking, semantic markup, and performance-conscious interaction logic.</p></article>
+        <article class="glass rounded-[1.7rem] p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-glow sm:p-8"><div class="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-500/10 text-sm font-bold text-emerald-600 dark:text-emerald-400">03</div><h3 class="mb-3 text-lg font-semibold tracking-tight">Polished UX</h3><p class="text-sm leading-relaxed text-lux-muted dark:text-lux-slate">Subtle motion, clear states, mobile-friendly dialogs, accessible controls, and delightful interaction details.</p></article>
       </div>
     </section>
+
+    <section id="work" class="reveal border-t border-black/[0.06] py-14 dark:border-white/[0.08] sm:py-24">
+      <div class="mb-8 flex flex-col gap-6 sm:mb-12 lg:flex-row lg:items-end lg:justify-between"><div><p class="mb-3 text-[11px] font-bold uppercase tracking-[0.18em] text-lux-muted dark:text-lux-slate">Selected Work</p><h2 class="text-3xl font-semibold tracking-[-0.03em] sm:text-5xl">Project Archive</h2></div><div class="relative w-full sm:w-80"><input id="search" type="search" placeholder="Search projects..." class="h-12 w-full rounded-2xl border border-black/10 bg-white/75 px-5 pr-11 text-sm shadow-[0_8px_24px_rgba(0,0,0,0.05)] outline-none backdrop-blur-xl transition focus:border-lux-charcoal/30 dark:border-white/10 dark:bg-white/[0.05] dark:focus:border-white/30" aria-label="Search projects" /><button id="clearSearch" type="button" class="absolute right-4 top-1/2 hidden h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full text-lux-slate hover:text-lux-charcoal dark:hover:text-white" aria-label="Clear search">×</button></div></div>
+      <div id="filters" class="mb-6 flex gap-2 overflow-x-auto pb-2 no-scrollbar"></div>
+      <div class="grid gap-6 lg:grid-cols-12">
+        <ul id="projectList" class="grid gap-4 lg:col-span-7" aria-live="polite"></ul>
+        <aside class="hidden lg:block lg:col-span-5"><div class="sticky top-28 rounded-[1.9rem] border border-black/[0.06] bg-white/70 p-3 shadow-soft backdrop-blur-2xl dark:border-white/[0.08] dark:bg-white/[0.04]"><div class="flex min-h-[480px] flex-col justify-between rounded-[1.45rem] border border-black/[0.04] bg-lux-linen p-8 dark:border-white/[0.06] dark:bg-lux-obsidian"><div><div class="mb-8 flex justify-between border-b border-black/[0.06] pb-5 text-[11px] font-bold uppercase tracking-[0.16em] text-lux-slate dark:border-white/[0.08]"><span id="previewType"></span><span id="previewYear"></span></div><h3 id="previewTitle" class="mb-4 text-4xl font-semibold tracking-[-0.045em]"></h3><p id="previewDesc" class="text-sm leading-relaxed text-lux-muted dark:text-lux-slate"></p></div><div><div id="previewStack" class="mb-6 flex flex-wrap gap-2 border-t border-black/[0.06] pt-6 dark:border-white/[0.08]"></div><div class="grid grid-cols-2 gap-3"><a id="previewVisit" href="#" target="_blank" rel="noopener" class="btn-primary h-12 sm:h-12">Visit</a><a id="previewCode" href="#" target="_blank" rel="noopener" class="btn-secondary h-12 sm:h-12">Code</a></div></div></div></div></aside>
+      </div>
+    </section>
+
+    <section id="process" class="reveal border-t border-black/[0.06] py-14 dark:border-white/[0.08] sm:py-24"><div class="mb-10"><p class="mb-3 text-[11px] font-bold uppercase tracking-[0.18em] text-lux-muted dark:text-lux-slate">Process</p><h2 class="text-balance text-3xl font-semibold tracking-[-0.03em] sm:text-5xl">From rough idea to polished interface.</h2></div><div class="grid gap-4 md:grid-cols-4"><article class="glass rounded-[1.7rem] p-6"><p class="mb-8 text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-600 dark:text-emerald-400">Step 01</p><h3 class="mb-2 font-semibold">Clarify</h3><p class="text-sm leading-relaxed text-lux-muted dark:text-lux-slate">Define the goal, audience, layout needs, and conversion priorities.</p></article><article class="glass rounded-[1.7rem] p-6"><p class="mb-8 text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-600 dark:text-emerald-400">Step 02</p><h3 class="mb-2 font-semibold">Structure</h3><p class="text-sm leading-relaxed text-lux-muted dark:text-lux-slate">Build the responsive skeleton and reusable component patterns.</p></article><article class="glass rounded-[1.7rem] p-6"><p class="mb-8 text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-600 dark:text-emerald-400">Step 03</p><h3 class="mb-2 font-semibold">Polish</h3><p class="text-sm leading-relaxed text-lux-muted dark:text-lux-slate">Add visual refinement, transitions, states, accessibility, and motion.</p></article><article class="glass rounded-[1.7rem] p-6"><p class="mb-8 text-[11px] font-bold uppercase tracking-[0.18em] text-emerald-600 dark:text-emerald-400">Step 04</p><h3 class="mb-2 font-semibold">Ship</h3><p class="text-sm leading-relaxed text-lux-muted dark:text-lux-slate">Review responsiveness, performance, usability, and deployment details.</p></article></div></section>
+
+    <section id="contact" class="reveal py-14 sm:py-24"><div class="relative overflow-hidden rounded-[2.4rem] bg-lux-charcoal px-6 py-16 text-center text-white shadow-lift dark:bg-white/[0.06] sm:p-20"><div class="absolute inset-x-0 top-0 mx-auto h-72 max-w-3xl rounded-full bg-emerald-400/20 blur-3xl"></div><div class="relative z-10"><p class="mb-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/50">Let’s Build</p><h2 class="mb-5 text-balance text-3xl font-semibold tracking-[-0.04em] sm:text-6xl">Have a project in mind?</h2><p class="mx-auto mb-8 max-w-xl text-sm leading-relaxed text-white/60 sm:text-lg">I’m available for front-end builds, responsive UI improvements, landing pages, portfolio systems, and polished interface prototypes.</p><div class="flex flex-col justify-center gap-3 sm:flex-row"><a href="mailto:nazir_noori@yahoo.com?subject=Project%20Inquiry%20%E2%80%94%20Portfolio%20Collaboration" class="inline-flex h-12 items-center justify-center rounded-2xl bg-white px-7 text-sm font-semibold text-lux-charcoal shadow-[0_14px_36px_rgba(0,0,0,0.22)] transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.98] sm:h-14">Email Me <span class="ml-2">→</span></a><button id="copyEmailContact" type="button" class="inline-flex h-12 items-center justify-center rounded-2xl border border-white/15 bg-white/10 px-7 text-sm font-semibold text-white backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/15 active:scale-[0.98] sm:h-14">Copy Email</button></div></div></div></section>
   </main>
 
-  <!-- Footer -->
-  <footer class="border-t border-black/[0.06] py-10 dark:border-white/[0.08]">
-    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-5 px-4 text-sm text-lux-muted dark:text-lux-slate sm:flex-row sm:px-6 lg:px-12">
-      <p>© <span id="year"></span> Nazir Noori. Built intentionally.</p>
+  <aside class="fixed bottom-5 right-5 z-40 hidden rounded-2xl border border-black/10 bg-white/75 px-4 py-3 text-xs font-semibold text-lux-muted shadow-lift backdrop-blur-2xl dark:border-white/10 dark:bg-white/[0.06] dark:text-lux-slate sm:block"><span class="mr-2 inline-block h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_12px_rgba(16,185,129,0.7)]"></span>Available now</aside>
 
-      <div class="flex gap-5">
-        <a href="https://github.com/nazirnoor" target="_blank" rel="noopener" class="hover:text-lux-charcoal dark:hover:text-white">GitHub</a>
-        <a href="https://codepen.io/nazirn" target="_blank" rel="noopener" class="hover:text-lux-charcoal dark:hover:text-white">CodePen</a>
-        <a href="#top" class="hover:text-lux-charcoal dark:hover:text-white">Back to top ↑</a>
-      </div>
-    </div>
-  </footer>
+  <footer class="relative z-10 border-t border-black/[0.06] py-10 dark:border-white/[0.08]"><div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-4 text-sm text-lux-muted dark:text-lux-slate sm:flex-row sm:px-6 lg:px-12"><p>© <span id="year"></span> Nazir Noori. Built intentionally.</p><div class="flex flex-wrap justify-center gap-5"><a href="https://github.com/nazirnoor" target="_blank" rel="noopener" class="hover:text-lux-charcoal dark:hover:text-white">GitHub</a><a href="https://codepen.io/nazirn" target="_blank" rel="noopener" class="hover:text-lux-charcoal dark:hover:text-white">CodePen</a><button id="footerCopy" type="button" class="hover:text-lux-charcoal dark:hover:text-white">Copy Email</button><a href="#top" class="hover:text-lux-charcoal dark:hover:text-white">Back to top ↑</a></div></div></footer>
 
-  <!-- Mobile Menu -->
-  <div
-    id="mobileMenu"
-    class="fixed inset-0 z-[80] hidden items-end justify-center bg-lux-linen/80 opacity-0 pointer-events-none backdrop-blur-xl transition-opacity duration-300 dark:bg-lux-obsidian/80"
-    aria-hidden="true"
-    role="dialog"
-    aria-modal="true"
-  >
-    <div class="mobile-sheet no-scrollbar translate-y-full transition-transform duration-300 ease-fluid">
-      <div class="mx-auto mb-7 h-1.5 w-12 rounded-full bg-black/15 dark:bg-white/20"></div>
+  <div id="mobileMenu" class="fixed inset-0 z-[90] hidden items-end justify-center bg-lux-linen/80 opacity-0 pointer-events-none backdrop-blur-xl transition-opacity duration-300 dark:bg-lux-obsidian/80" aria-hidden="true" role="dialog" aria-modal="true"><div class="mobile-sheet no-scrollbar translate-y-full transition-transform duration-300 ease-fluid"><div class="mx-auto mb-7 h-1.5 w-12 rounded-full bg-black/15 dark:bg-white/20"></div><div class="mb-6 flex items-center justify-between"><p class="text-[11px] font-bold uppercase tracking-[0.18em] text-lux-muted dark:text-lux-slate">Navigation</p><button id="menuClose" type="button" class="btn-icon text-xl" aria-label="Close menu">×</button></div><div class="grid gap-3"><a href="#focus" class="mobileNavLink mobile-link"><span>Focus</span><span>→</span></a><a href="#work" class="mobileNavLink mobile-link"><span>Work</span><span>→</span></a><a href="#process" class="mobileNavLink mobile-link"><span>Process</span><span>→</span></a><a href="#contact" class="mobileNavLink mobile-link"><span>Contact</span><span>→</span></a><button id="mobileCommand" type="button" class="mobile-link"><span>Command Palette</span><span>⌘K</span></button><a href="mailto:nazir_noori@yahoo.com?subject=Project%20Inquiry%20%E2%80%94%20Portfolio%20Collaboration" class="mt-2 flex h-14 items-center justify-center rounded-2xl bg-lux-charcoal px-5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(0,0,0,0.14)] transition active:scale-[0.98] dark:bg-lux-chalk dark:text-lux-charcoal">Get in Touch</a></div></div></div>
 
-      <div class="mb-6 flex items-center justify-between">
-        <p class="text-[11px] font-bold uppercase tracking-[0.18em] text-lux-muted dark:text-lux-slate">
-          Navigation
-        </p>
-        <button id="menuClose" type="button" class="btn-icon text-xl" aria-label="Close menu">×</button>
-      </div>
+  <div id="projectModal" class="fixed inset-0 z-[90] hidden items-end justify-center bg-lux-linen/80 opacity-0 pointer-events-none backdrop-blur-xl transition-opacity duration-300 dark:bg-lux-obsidian/80" aria-hidden="true" role="dialog" aria-modal="true"><div class="mobile-sheet no-scrollbar translate-y-full transition-transform duration-300 ease-fluid"><div class="mx-auto mb-7 h-1.5 w-12 rounded-full bg-black/15 dark:bg-white/20"></div><div class="mb-6 flex items-center justify-between"><p id="modalMeta" class="text-[11px] font-bold uppercase tracking-[0.18em] text-lux-muted dark:text-lux-slate"></p><button id="modalClose" type="button" class="btn-icon text-xl" aria-label="Close project details">×</button></div><h3 id="modalTitle" class="mb-3 text-3xl font-semibold tracking-[-0.04em]"></h3><p id="modalDesc" class="mb-7 text-sm leading-relaxed text-lux-muted dark:text-lux-slate"></p><div id="modalStack" class="mb-8 flex flex-wrap gap-2"></div><div id="modalActions" class="grid gap-3 border-t border-black/[0.06] pt-5 dark:border-white/[0.08] sm:grid-cols-2"><a id="modalVisit" href="#" target="_blank" rel="noopener" class="btn-primary h-12 sm:h-12">View Project</a><a id="modalCode" href="#" target="_blank" rel="noopener" class="btn-secondary h-12 sm:h-12">Source Code</a></div></div></div>
 
-      <div class="grid gap-3">
-        <a href="#focus" class="mobileNavLink btn-mobile-link">
-          <span>Focus</span>
-          <span>→</span>
-        </a>
-
-        <a href="#work" class="mobileNavLink btn-mobile-link">
-          <span>Work</span>
-          <span>→</span>
-        </a>
-
-        <a href="#contact" class="mobileNavLink btn-mobile-link">
-          <span>Contact</span>
-          <span>→</span>
-        </a>
-
-        <a
-          href="mailto:nazir_noori@yahoo.com?subject=Project Inquiry — Portfolio Collaboration"
-          class="mt-2 flex h-14 items-center justify-center rounded-2xl bg-lux-charcoal px-5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(0,0,0,0.14)] transition active:scale-[0.98] dark:bg-lux-chalk dark:text-lux-charcoal"
-        >
-          Get in Touch
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Project Modal -->
-  <div
-    id="projectModal"
-    class="fixed inset-0 z-[80] hidden items-end justify-center bg-lux-linen/80 opacity-0 pointer-events-none backdrop-blur-xl transition-opacity duration-300 dark:bg-lux-obsidian/80"
-    aria-hidden="true"
-    role="dialog"
-    aria-modal="true"
-  >
-    <div class="mobile-sheet no-scrollbar translate-y-full transition-transform duration-300 ease-fluid">
-      <div class="mx-auto mb-7 h-1.5 w-12 rounded-full bg-black/15 dark:bg-white/20"></div>
-
-      <div class="mb-6 flex items-center justify-between">
-        <p id="modalMeta" class="text-[11px] font-bold uppercase tracking-[0.18em] text-lux-muted dark:text-lux-slate"></p>
-        <button id="modalClose" type="button" class="btn-icon text-xl" aria-label="Close project details">×</button>
-      </div>
-
-      <h3 id="modalTitle" class="mb-3 text-2xl font-semibold tracking-[-0.03em]"></h3>
-      <p id="modalDesc" class="mb-7 text-sm leading-relaxed text-lux-muted dark:text-lux-slate"></p>
-
-      <div id="modalStack" class="mb-8 flex flex-wrap gap-2"></div>
-
-      <div id="modalActions" class="grid gap-3 border-t border-black/[0.06] pt-5 dark:border-white/[0.08] sm:grid-cols-2">
-        <a id="modalVisit" href="#" target="_blank" rel="noopener" class="btn-primary h-12 sm:h-12">
-          View Project
-        </a>
-
-        <a id="modalCode" href="#" target="_blank" rel="noopener" class="btn-secondary h-12 sm:h-12">
-          Source Code
-        </a>
-      </div>
-    </div>
-  </div>
+  <div id="commandPalette" class="fixed inset-0 z-[110] hidden items-start justify-center bg-lux-linen/70 p-4 opacity-0 pointer-events-none backdrop-blur-2xl transition-opacity duration-300 dark:bg-lux-obsidian/70 sm:items-center" role="dialog" aria-modal="true" aria-hidden="true"><div class="mt-16 w-full max-w-2xl translate-y-4 overflow-hidden rounded-[1.7rem] border border-black/10 bg-white shadow-deep transition-transform duration-300 dark:border-white/10 dark:bg-[#111113] sm:mt-0"><div class="flex items-center gap-3 border-b border-black/[0.06] p-4 dark:border-white/[0.08]"><span class="text-lux-slate">⌘</span><input id="commandInput" type="text" placeholder="Search projects, actions, navigation..." class="h-10 flex-1 bg-transparent text-sm font-medium outline-none placeholder:text-lux-slate" /><kbd class="hidden rounded-lg bg-black/[0.04] px-2 py-1 text-[10px] font-bold text-lux-slate dark:bg-white/[0.06] sm:inline">ESC</kbd></div><div id="commandResults" class="max-h-[420px] overflow-y-auto p-2"></div></div></div>
 
   <script>
     "use strict";
-
     (() => {
+      const EMAIL = "nazir_noori@yahoo.com";
       const projects = [
-        {
-          title: "FocusFlow Timer",
-          year: "2026",
-          type: "Web Application",
-          source: "Utility",
-          stack: ["HTML5", "CSS Variables", "JavaScript"],
-          description: "A minimal focus timer experience designed for long work sessions, clean interaction states, and distraction-free productivity.",
-          url: "https://nazirnoor.github.io/Timer/",
-          code: "https://github.com/nazirnoor/Timer"
-        },
-        {
-          title: "Premium Site Engine",
-          year: "Production",
-          type: "Architecture",
-          source: "System",
-          stack: ["Responsive Layout", "DOM Logic", "UI System"],
-          description: "A polished landing page system focused on viewport stability, responsive grid behavior, and premium visual composition.",
-          url: "https://nazirnoor.github.io/site/",
-          code: "https://github.com/nazirnoor/site"
-        },
-        {
-          title: "React UI Laboratory",
-          year: "Active",
-          type: "Ecosystem",
-          source: "React",
-          stack: ["React Hooks", "Components", "Motion"],
-          description: "An experimental interface lab for testing component behavior, state-driven UI patterns, and animated interaction models.",
-          url: "",
-          code: ""
-        },
-        {
-          title: "Fluid Blueprint Grid",
-          year: "Concept",
-          type: "Framework",
-          source: "Layout",
-          stack: ["CSS Grid", "Fluid Type", "Design Tokens"],
-          description: "A layout concept built around strict typographic rhythm, fluid spacing, and scalable responsive structure.",
-          url: "",
-          code: ""
-        }
+        { title: "FocusFlow Timer", year: "2026", type: "Web Application", source: "Utility", category: "Application", stack: ["HTML5", "CSS Variables", "JavaScript"], description: "A minimal focus timer experience designed for long work sessions, clean interaction states, and distraction-free productivity.", url: "https://nazirnoor.github.io/Timer/", code: "https://github.com/nazirnoor/Timer" },
+        { title: "Premium Site Engine", year: "Production", type: "Architecture", source: "System", category: "Architecture", stack: ["Responsive Layout", "DOM Logic", "UI System"], description: "A polished landing page system focused on viewport stability, responsive grid behavior, and premium visual composition.", url: "https://nazirnoor.github.io/site/", code: "https://github.com/nazirnoor/site" },
+        { title: "React UI Laboratory", year: "Active", type: "Ecosystem", source: "React", category: "Prototype", stack: ["React Hooks", "Components", "Motion"], description: "An experimental interface lab for testing component behavior, state-driven UI patterns, and animated interaction models.", url: "", code: "" },
+        { title: "Fluid Blueprint Grid", year: "Concept", type: "Framework", source: "Layout", category: "Concept", stack: ["CSS Grid", "Fluid Type", "Design Tokens"], description: "A layout concept built around strict typographic rhythm, fluid spacing, and scalable responsive structure.", url: "", code: "" },
+        { title: "Command Interface Experiments", year: "Prototype", type: "Interaction", source: "Motion", category: "Prototype", stack: ["Keyboard UX", "Micro Motion", "JavaScript"], description: "A command-palette interaction model for fast navigation, project discovery, and power-user friendly portfolio actions.", url: "", code: "" }
       ];
-
       const $ = (selector) => document.querySelector(selector);
-
+      const $$ = (selector) => Array.from(document.querySelectorAll(selector));
       const DOM = {
-        progress: $("#progress"),
-        nav: $("#nav"),
-        year: $("#year"),
-        themeBtn: $("#themeBtn"),
-        dynamicFavicon: $("#dynamicFavicon"),
-
-        menuBtn: $("#menuBtn"),
-        mobileMenu: $("#mobileMenu"),
-        menuClose: $("#menuClose"),
-
-        search: $("#search"),
-        clearSearch: $("#clearSearch"),
-        projectList: $("#projectList"),
-
-        previewType: $("#previewType"),
-        previewYear: $("#previewYear"),
-        previewTitle: $("#previewTitle"),
-        previewDesc: $("#previewDesc"),
-        previewStack: $("#previewStack"),
-
-        modal: $("#projectModal"),
-        modalClose: $("#modalClose"),
-        modalMeta: $("#modalMeta"),
-        modalTitle: $("#modalTitle"),
-        modalDesc: $("#modalDesc"),
-        modalStack: $("#modalStack"),
-        modalActions: $("#modalActions"),
-        modalVisit: $("#modalVisit"),
-        modalCode: $("#modalCode")
+        progress: $("#progress"), nav: $("#nav"), year: $("#year"), themeBtn: $("#themeBtn"), dynamicFavicon: $("#dynamicFavicon"), toast: $("#toast"), menuBtn: $("#menuBtn"), mobileMenu: $("#mobileMenu"), menuClose: $("#menuClose"), mobileCommand: $("#mobileCommand"), commandBtn: $("#commandBtn"), commandPalette: $("#commandPalette"), commandInput: $("#commandInput"), commandResults: $("#commandResults"), search: $("#search"), clearSearch: $("#clearSearch"), filters: $("#filters"), projectList: $("#projectList"), previewType: $("#previewType"), previewYear: $("#previewYear"), previewTitle: $("#previewTitle"), previewDesc: $("#previewDesc"), previewStack: $("#previewStack"), previewVisit: $("#previewVisit"), previewCode: $("#previewCode"), modal: $("#projectModal"), modalClose: $("#modalClose"), modalMeta: $("#modalMeta"), modalTitle: $("#modalTitle"), modalDesc: $("#modalDesc"), modalStack: $("#modalStack"), modalActions: $("#modalActions"), modalVisit: $("#modalVisit"), modalCode: $("#modalCode"), copyEmailHero: $("#copyEmailHero"), copyEmailContact: $("#copyEmailContact"), footerCopy: $("#footerCopy"), canvas: $("#heroCanvas")
       };
-
-      let filteredProjects = [...projects];
-      let activeIndex = 0;
-
-      const icons = {
-        sun: `
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="4"></circle>
-            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
-          </svg>
-        `,
-        moon: `
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"></path>
-          </svg>
-        `
-      };
-
+      let filteredProjects = [...projects], activeIndex = 0, activeFilter = "All", statsAnimated = false;
+      const icons = { sun: '<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>', moon: '<svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"></path></svg>' };
       const isMobile = () => window.innerWidth < 1024;
-
-      const createEl = (tag, className, text) => {
-        const element = document.createElement(tag);
-        if (className) element.className = className;
-        if (text !== undefined) element.textContent = text;
-        return element;
-      };
-
-      const setFavicon = () => {
-        if (!DOM.dynamicFavicon) return;
-
-        const isDark = document.documentElement.classList.contains("dark");
-        const bg = isDark ? "#09090b" : "#f8f7f4";
-        const fg = isDark ? "#f3f3f5" : "#131314";
-
-        const svg = `
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-            <rect width="32" height="32" rx="8" fill="${bg}"/>
-            <text x="8" y="23" font-family="Arial" font-size="20" font-weight="800" fill="${fg}">N</text>
-          </svg>
-        `;
-
-        DOM.dynamicFavicon.href = `data:image/svg+xml,${encodeURIComponent(svg)}`;
-      };
-
-      const syncThemeUI = () => {
-        const isDark = document.documentElement.classList.contains("dark");
-        if (DOM.themeBtn) DOM.themeBtn.innerHTML = isDark ? icons.sun : icons.moon;
-        setFavicon();
-      };
-
-      const toggleTheme = () => {
-        const isDark = document.documentElement.classList.toggle("dark");
-        localStorage.theme = isDark ? "dark" : "light";
-        syncThemeUI();
-      };
-
-      const initTheme = () => {
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-        if (localStorage.theme === "dark" || (!("theme" in localStorage) && prefersDark)) {
-          document.documentElement.classList.add("dark");
-        } else {
-          document.documentElement.classList.remove("dark");
-        }
-
-        syncThemeUI();
-      };
-
-      const openSheet = (sheet) => {
-        if (!sheet) return;
-
-        sheet.classList.remove("hidden");
-        sheet.classList.add("flex");
-
-        requestAnimationFrame(() => {
-          sheet.classList.remove("opacity-0", "pointer-events-none");
-          sheet.classList.add("opacity-100");
-
-          const panel = sheet.firstElementChild;
-          if (panel) panel.classList.remove("translate-y-full");
-        });
-
-        sheet.setAttribute("aria-hidden", "false");
-        document.body.style.overflow = "hidden";
-      };
-
-      const closeSheet = (sheet) => {
-        if (!sheet) return;
-
-        sheet.classList.remove("opacity-100");
-        sheet.classList.add("opacity-0", "pointer-events-none");
-        sheet.setAttribute("aria-hidden", "true");
-
-        const panel = sheet.firstElementChild;
-        if (panel) panel.classList.add("translate-y-full");
-
-        window.setTimeout(() => {
-          sheet.classList.remove("flex");
-          sheet.classList.add("hidden");
-        }, 320);
-
-        document.body.style.overflow = "";
-      };
-
-      const closeAllSheets = () => {
-        closeSheet(DOM.mobileMenu);
-        closeSheet(DOM.modal);
-
-        if (DOM.menuBtn) {
-          DOM.menuBtn.setAttribute("aria-expanded", "false");
-        }
-      };
-
-      const renderTags = (container, stack, variant = "default") => {
-        if (!container) return;
-
-        container.replaceChildren();
-
-        stack.forEach((tag) => {
-          const className =
-            variant === "preview"
-              ? "rounded-full border border-black/10 bg-white/80 px-3 py-1 text-[11px] font-medium text-lux-muted dark:border-white/10 dark:bg-white/[0.05] dark:text-lux-slate"
-              : "rounded-full border border-black/10 bg-black/[0.03] px-3 py-1 text-[11px] font-medium text-lux-muted dark:border-white/10 dark:bg-white/[0.05] dark:text-lux-slate";
-
-          container.append(createEl("span", className, tag));
-        });
-      };
-
-      const updatePreview = (index) => {
-        const project = filteredProjects[index];
-        if (!project) return;
-
-        activeIndex = index;
-
-        DOM.previewType.textContent = project.type;
-        DOM.previewYear.textContent = project.year;
-        DOM.previewTitle.textContent = project.title;
-        DOM.previewDesc.textContent = project.description;
-
-        renderTags(DOM.previewStack, project.stack, "preview");
-      };
-
-      const openProjectModal = (index) => {
-        const project = filteredProjects[index];
-        if (!project) return;
-
-        DOM.modalMeta.textContent = `${project.type} — ${project.year}`;
-        DOM.modalTitle.textContent = project.title;
-        DOM.modalDesc.textContent = project.description;
-
-        renderTags(DOM.modalStack, project.stack);
-
-        if (project.url) {
-          DOM.modalVisit.href = project.url;
-          DOM.modalVisit.style.display = "";
-        } else {
-          DOM.modalVisit.style.display = "none";
-        }
-
-        if (project.code) {
-          DOM.modalCode.href = project.code;
-          DOM.modalCode.style.display = "";
-        } else {
-          DOM.modalCode.style.display = "none";
-        }
-
-        DOM.modalActions.style.display = project.url || project.code ? "grid" : "none";
-
-        openSheet(DOM.modal);
-      };
-
-      const renderProjects = () => {
-        const fragment = document.createDocumentFragment();
-
-        if (!filteredProjects.length) {
-          const empty = createEl(
-            "li",
-            "rounded-[1.5rem] border border-black/[0.06] bg-white/70 p-8 text-center text-sm text-lux-muted shadow-soft backdrop-blur-xl dark:border-white/[0.08] dark:bg-white/[0.04] dark:text-lux-slate",
-            "No projects matched your search."
-          );
-
-          fragment.append(empty);
-          DOM.projectList.replaceChildren(fragment);
-          return;
-        }
-
-        filteredProjects.forEach((project, index) => {
-          const isActive = index === activeIndex;
-
-          const item = createEl(
-            "li",
-            `group cursor-pointer rounded-[1.35rem] border p-5 transition-all duration-300 active:scale-[0.985] sm:rounded-[1.5rem] sm:p-6 ${
-              isActive
-                ? "border-black/10 bg-white shadow-soft dark:border-white/[0.12] dark:bg-white/[0.06]"
-                : "border-black/[0.06] bg-white/65 shadow-[0_8px_24px_rgba(0,0,0,0.04)] hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_14px_40px_rgba(0,0,0,0.08)] dark:border-white/[0.08] dark:bg-white/[0.04] dark:hover:bg-white/[0.07]"
-            }`
-          );
-
-          item.tabIndex = 0;
-          item.setAttribute("role", "button");
-          item.setAttribute("aria-label", `Open ${project.title}`);
-          item.dataset.index = index;
-
-          const top = createEl("div", "mb-3 flex items-start justify-between gap-4");
-          const titleWrap = createEl("div");
-
-          titleWrap.append(
-            createEl("p", "mb-1 text-[11px] font-bold uppercase tracking-[0.16em] text-lux-slate", project.source),
-            createEl("h3", "text-lg font-semibold tracking-[-0.02em]", project.title)
-          );
-
-          top.append(
-            titleWrap,
-            createEl("span", "shrink-0 rounded-full bg-emerald-500/10 px-3 py-1 text-[11px] font-bold text-emerald-600 dark:text-emerald-400", project.year)
-          );
-
-          const desc = createEl(
-            "p",
-            "mb-4 text-sm leading-relaxed text-lux-muted dark:text-lux-slate",
-            project.description
-          );
-
-          const tags = createEl("div", "flex flex-wrap gap-2");
-
-          project.stack.slice(0, 3).forEach((tag) => {
-            tags.append(
-              createEl(
-                "span",
-                "rounded-full bg-black/[0.04] px-3 py-1 text-[11px] font-medium text-lux-muted dark:bg-white/[0.05] dark:text-lux-slate",
-                tag
-              )
-            );
-          });
-
-          item.append(top, desc, tags);
-          fragment.append(item);
-        });
-
-        DOM.projectList.replaceChildren(fragment);
-
-        if (!isMobile()) {
-          updatePreview(Math.min(activeIndex, filteredProjects.length - 1));
-        }
-      };
-
-      const filterProjects = () => {
-        const query = DOM.search.value.trim().toLowerCase();
-
-        filteredProjects = projects.filter((project) => {
-          return (
-            project.title.toLowerCase().includes(query) ||
-            project.description.toLowerCase().includes(query) ||
-            project.type.toLowerCase().includes(query) ||
-            project.source.toLowerCase().includes(query) ||
-            project.stack.some((tag) => tag.toLowerCase().includes(query))
-          );
-        });
-
-        activeIndex = 0;
-        DOM.clearSearch.style.display = query ? "flex" : "none";
-        renderProjects();
-      };
-
-      const handleScroll = () => {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const percentage = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-
-        DOM.progress.style.width = `${percentage}%`;
-
-        if (scrollTop > 10) {
-          DOM.nav.classList.add(
-            "bg-lux-linen/80",
-            "dark:bg-lux-obsidian/80",
-            "backdrop-blur-2xl",
-            "border-black/[0.06]",
-            "dark:border-white/[0.08]"
-          );
-        } else {
-          DOM.nav.classList.remove(
-            "bg-lux-linen/80",
-            "dark:bg-lux-obsidian/80",
-            "backdrop-blur-2xl",
-            "border-black/[0.06]",
-            "dark:border-white/[0.08]"
-          );
-        }
-
-        document.querySelectorAll(".reveal").forEach((element) => {
-          const rect = element.getBoundingClientRect();
-
-          if (rect.top <= window.innerHeight - 90) {
-            element.classList.add("visible");
-          }
-        });
-      };
-
-      DOM.themeBtn?.addEventListener("click", toggleTheme);
-
-      DOM.menuBtn?.addEventListener("click", () => {
-        DOM.menuBtn.setAttribute("aria-expanded", "true");
-        openSheet(DOM.mobileMenu);
-      });
-
-      DOM.menuClose?.addEventListener("click", () => {
-        DOM.menuBtn.setAttribute("aria-expanded", "false");
-        closeSheet(DOM.mobileMenu);
-      });
-
-      document.querySelectorAll(".mobileNavLink").forEach((link) => {
-        link.addEventListener("click", () => {
-          DOM.menuBtn.setAttribute("aria-expanded", "false");
-          closeSheet(DOM.mobileMenu);
-        });
-      });
-
-      DOM.mobileMenu?.addEventListener("click", (event) => {
-        if (event.target === DOM.mobileMenu) {
-          DOM.menuBtn.setAttribute("aria-expanded", "false");
-          closeSheet(DOM.mobileMenu);
-        }
-      });
-
-      DOM.modal?.addEventListener("click", (event) => {
-        if (event.target === DOM.modal) {
-          closeSheet(DOM.modal);
-        }
-      });
-
-      DOM.modalClose?.addEventListener("click", () => closeSheet(DOM.modal));
-
-      DOM.projectList.addEventListener("click", (event) => {
-        const item = event.target.closest("li[data-index]");
-        if (!item) return;
-
-        const index = Number(item.dataset.index);
-        activeIndex = index;
-
-        if (isMobile()) {
-          openProjectModal(index);
-        } else {
-          updatePreview(index);
-          renderProjects();
-        }
-      });
-
-      DOM.projectList.addEventListener("keydown", (event) => {
-        if (event.key !== "Enter" && event.key !== " ") return;
-
-        const item = event.target.closest("li[data-index]");
-        if (!item) return;
-
-        event.preventDefault();
-
-        const index = Number(item.dataset.index);
-        activeIndex = index;
-
-        if (isMobile()) {
-          openProjectModal(index);
-        } else {
-          updatePreview(index);
-          renderProjects();
-        }
-      });
-
-      DOM.search.addEventListener("input", filterProjects);
-
-      DOM.clearSearch.addEventListener("click", () => {
-        DOM.search.value = "";
-        filterProjects();
-        DOM.search.focus();
-      });
-
-      window.addEventListener("scroll", handleScroll, { passive: true });
-      window.addEventListener("resize", renderProjects);
-
-      window.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") closeAllSheets();
-      });
-
-      DOM.year.textContent = new Date().getFullYear();
-
-      initTheme();
-      renderProjects();
-      handleScroll();
+      const createEl = (tag, className, text) => { const el = document.createElement(tag); if (className) el.className = className; if (text !== undefined) el.textContent = text; return el; };
+      const showToast = (message) => { DOM.toast.textContent = message; DOM.toast.classList.remove("opacity-0", "-translate-y-4"); DOM.toast.classList.add("opacity-100", "translate-y-0"); clearTimeout(showToast.timer); showToast.timer = setTimeout(() => { DOM.toast.classList.add("opacity-0", "-translate-y-4"); DOM.toast.classList.remove("opacity-100", "translate-y-0"); }, 1400); };
+      const copyEmail = async () => { try { await navigator.clipboard.writeText(EMAIL); showToast("Email copied to clipboard"); } catch { showToast(EMAIL); } };
+      const setFavicon = () => { if (!DOM.dynamicFavicon) return; const isDark = document.documentElement.classList.contains("dark"); const bg = isDark ? "#09090b" : "#f8f7f4"; const fg = isDark ? "#f3f3f5" : "#131314"; const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="${bg}"/><text x="8" y="23" font-family="Arial" font-size="20" font-weight="800" fill="${fg}">N</text></svg>`; DOM.dynamicFavicon.href = `data:image/svg+xml,${encodeURIComponent(svg)}`; };
+      const syncThemeUI = () => { const isDark = document.documentElement.classList.contains("dark"); if (DOM.themeBtn) DOM.themeBtn.innerHTML = isDark ? icons.sun : icons.moon; setFavicon(); };
+      const toggleTheme = () => { const isDark = document.documentElement.classList.toggle("dark"); localStorage.theme = isDark ? "dark" : "light"; syncThemeUI(); };
+      const initTheme = () => { const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches; if (localStorage.theme === "dark" || (!("theme" in localStorage) && prefersDark)) document.documentElement.classList.add("dark"); else document.documentElement.classList.remove("dark"); syncThemeUI(); };
+      const openSheet = (sheet) => { if (!sheet) return; sheet.classList.remove("hidden"); sheet.classList.add("flex"); requestAnimationFrame(() => { sheet.classList.remove("opacity-0", "pointer-events-none"); sheet.classList.add("opacity-100"); const panel = sheet.firstElementChild; if (panel) panel.classList.remove("translate-y-full", "translate-y-4"); }); sheet.setAttribute("aria-hidden", "false"); document.body.classList.add("modal-open"); };
+      const closeSheet = (sheet) => { if (!sheet) return; sheet.classList.remove("opacity-100"); sheet.classList.add("opacity-0", "pointer-events-none"); sheet.setAttribute("aria-hidden", "true"); const panel = sheet.firstElementChild; if (panel) { if (sheet === DOM.commandPalette) panel.classList.add("translate-y-4"); else panel.classList.add("translate-y-full"); } setTimeout(() => { sheet.classList.remove("flex"); sheet.classList.add("hidden"); }, 320); document.body.classList.remove("modal-open"); };
+      const closeAllSheets = () => { closeSheet(DOM.mobileMenu); closeSheet(DOM.modal); closeSheet(DOM.commandPalette); if (DOM.menuBtn) DOM.menuBtn.setAttribute("aria-expanded", "false"); };
+      const renderTags = (container, stack, variant = "default") => { if (!container) return; container.replaceChildren(); stack.forEach((tag) => { const cn = variant === "preview" ? "rounded-full border border-black/10 bg-white/80 px-3 py-1 text-[11px] font-medium text-lux-muted dark:border-white/10 dark:bg-white/[0.05] dark:text-lux-slate" : "rounded-full border border-black/10 bg-black/[0.03] px-3 py-1 text-[11px] font-medium text-lux-muted dark:border-white/10 dark:bg-white/[0.05] dark:text-lux-slate"; container.append(createEl("span", cn, tag)); }); };
+      const updatePreview = (index) => { const p = filteredProjects[index]; if (!p) return; activeIndex = index; DOM.previewType.textContent = p.type; DOM.previewYear.textContent = p.year; DOM.previewTitle.textContent = p.title; DOM.previewDesc.textContent = p.description; renderTags(DOM.previewStack, p.stack, "preview"); DOM.previewVisit.href = p.url || "#"; DOM.previewVisit.style.display = p.url ? "" : "none"; DOM.previewCode.href = p.code || "#"; DOM.previewCode.style.display = p.code ? "" : "none"; };
+      const openProjectModal = (index) => { const p = filteredProjects[index]; if (!p) return; DOM.modalMeta.textContent = `${p.type} — ${p.year}`; DOM.modalTitle.textContent = p.title; DOM.modalDesc.textContent = p.description; renderTags(DOM.modalStack, p.stack); DOM.modalVisit.href = p.url || "#"; DOM.modalVisit.style.display = p.url ? "" : "none"; DOM.modalCode.href = p.code || "#"; DOM.modalCode.style.display = p.code ? "" : "none"; DOM.modalActions.style.display = p.url || p.code ? "grid" : "none"; openSheet(DOM.modal); };
+      const renderFilters = () => { const categories = ["All", ...new Set(projects.map(p => p.category))]; DOM.filters.replaceChildren(); categories.forEach(category => { const btn = createEl("button", `filter-chip ${category === activeFilter ? "active" : ""}`, category); btn.type = "button"; btn.addEventListener("click", () => { activeFilter = category; filterProjects(); }); DOM.filters.append(btn); }); };
+      const renderProjects = () => { const frag = document.createDocumentFragment(); if (!filteredProjects.length) { frag.append(createEl("li", "rounded-[1.5rem] border border-black/[0.06] bg-white/70 p-8 text-center text-sm text-lux-muted shadow-soft backdrop-blur-xl dark:border-white/[0.08] dark:bg-white/[0.04] dark:text-lux-slate", "No projects matched your search.")); DOM.projectList.replaceChildren(frag); return; } filteredProjects.forEach((p, index) => { const isActive = index === activeIndex; const item = createEl("li", `project-card group relative cursor-pointer overflow-hidden rounded-[1.55rem] border p-5 transition-all duration-300 active:scale-[0.985] sm:p-6 ${isActive ? "border-black/10 bg-white shadow-soft dark:border-white/[0.12] dark:bg-white/[0.06]" : "border-black/[0.06] bg-white/65 shadow-[0_8px_24px_rgba(0,0,0,0.04)] hover:-translate-y-1 hover:bg-white hover:shadow-[0_14px_40px_rgba(0,0,0,0.08)] dark:border-white/[0.08] dark:bg-white/[0.04] dark:hover:bg-white/[0.07]"}`); item.tabIndex = 0; item.setAttribute("role", "button"); item.setAttribute("aria-label", `Open ${p.title}`); item.dataset.index = index; const top = createEl("div", "relative z-10 mb-3 flex items-start justify-between gap-4"); const titleWrap = createEl("div"); titleWrap.append(createEl("p", "mb-1 text-[11px] font-bold uppercase tracking-[0.16em] text-lux-slate", p.source), createEl("h3", "text-xl font-semibold tracking-[-0.025em]", p.title)); top.append(titleWrap, createEl("span", "shrink-0 rounded-full bg-emerald-500/10 px-3 py-1 text-[11px] font-bold text-emerald-600 dark:text-emerald-400", p.year)); const desc = createEl("p", "relative z-10 mb-4 text-sm leading-relaxed text-lux-muted dark:text-lux-slate", p.description); const tags = createEl("div", "relative z-10 flex flex-wrap gap-2"); p.stack.slice(0, 3).forEach(tag => tags.append(createEl("span", "rounded-full bg-black/[0.04] px-3 py-1 text-[11px] font-medium text-lux-muted dark:bg-white/[0.05] dark:text-lux-slate", tag))); item.append(top, desc, tags); frag.append(item); }); DOM.projectList.replaceChildren(frag); if (!isMobile()) updatePreview(Math.min(activeIndex, filteredProjects.length - 1)); bindProjectCardMotion(); };
+      const filterProjects = () => { const query = DOM.search.value.trim().toLowerCase(); filteredProjects = projects.filter(p => { const matchesQuery = p.title.toLowerCase().includes(query) || p.description.toLowerCase().includes(query) || p.type.toLowerCase().includes(query) || p.source.toLowerCase().includes(query) || p.category.toLowerCase().includes(query) || p.stack.some(tag => tag.toLowerCase().includes(query)); const matchesFilter = activeFilter === "All" || p.category === activeFilter; return matchesQuery && matchesFilter; }); activeIndex = 0; DOM.clearSearch.style.display = query ? "flex" : "none"; renderFilters(); renderProjects(); };
+      const bindProjectCardMotion = () => { $$(".project-card").forEach(card => { card.addEventListener("pointermove", e => { const rect = card.getBoundingClientRect(); const x = e.clientX - rect.left, y = e.clientY - rect.top; card.style.setProperty("--mx", `${x}px`); card.style.setProperty("--my", `${y}px`); if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || window.innerWidth < 768) return; const rotateX = ((y / rect.height) - 0.5) * -4; const rotateY = ((x / rect.width) - 0.5) * 4; card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`; }); card.addEventListener("pointerleave", () => { card.style.transform = ""; }); }); };
+      const renderCommandResults = () => { const query = DOM.commandInput.value.trim().toLowerCase(); const commands = [{ title: "Go to Focus", meta: "Navigation", action: () => location.hash = "#focus" }, { title: "Go to Work", meta: "Navigation", action: () => location.hash = "#work" }, { title: "Go to Process", meta: "Navigation", action: () => location.hash = "#process" }, { title: "Go to Contact", meta: "Navigation", action: () => location.hash = "#contact" }, { title: "Toggle Theme", meta: "Action", action: toggleTheme }, { title: "Copy Email", meta: "Action", action: copyEmail }, { title: "Open GitHub", meta: "External", action: () => window.open("https://github.com/nazirnoor", "_blank", "noopener") }, ...projects.map(p => ({ title: p.title, meta: `Project · ${p.category}`, action: () => { activeFilter = "All"; DOM.search.value = p.title; filterProjects(); location.hash = "#work"; setTimeout(() => { const index = filteredProjects.findIndex(item => item.title === p.title); if (index >= 0) openProjectModal(index); }, 200); } }))]; const results = commands.filter(item => `${item.title} ${item.meta}`.toLowerCase().includes(query)).slice(0, 9); DOM.commandResults.replaceChildren(); if (!results.length) { DOM.commandResults.innerHTML = '<div class="p-6 text-center text-sm text-lux-muted dark:text-lux-slate">No command found.</div>'; return; } results.forEach(item => { const btn = createEl("button", "command-item"); btn.type = "button"; btn.innerHTML = `<span><span class="block text-sm font-semibold">${item.title}</span><span class="block text-xs text-lux-slate">${item.meta}</span></span><span class="text-lux-slate">↵</span>`; btn.addEventListener("click", () => { item.action(); closeSheet(DOM.commandPalette); }); DOM.commandResults.append(btn); }); };
+      const openCommandPalette = () => { openSheet(DOM.commandPalette); DOM.commandInput.value = ""; renderCommandResults(); setTimeout(() => DOM.commandInput.focus(), 80); };
+      const handleScroll = () => { const scrollTop = window.scrollY; const docHeight = document.documentElement.scrollHeight - window.innerHeight; DOM.progress.style.width = `${docHeight > 0 ? (scrollTop / docHeight) * 100 : 0}%`; if (scrollTop > 10) DOM.nav.classList.add("bg-lux-linen/80", "dark:bg-lux-obsidian/80", "backdrop-blur-2xl", "border-black/[0.06]", "dark:border-white/[0.08]"); else DOM.nav.classList.remove("bg-lux-linen/80", "dark:bg-lux-obsidian/80", "backdrop-blur-2xl", "border-black/[0.06]", "dark:border-white/[0.08]"); document.querySelectorAll(".reveal").forEach(el => { if (el.getBoundingClientRect().top <= window.innerHeight - 90) el.classList.add("visible"); }); updateScrollSpy(); animateStatsWhenVisible(); };
+      const updateScrollSpy = () => { const sections = ["focus", "work", "process", "contact"]; let active = ""; sections.forEach(id => { const section = document.getElementById(id); if (!section) return; const rect = section.getBoundingClientRect(); if (rect.top <= 160 && rect.bottom >= 160) active = id; }); $$("[data-section-link]").forEach(link => link.classList.toggle("active", link.dataset.sectionLink === active)); };
+      const animateStatsWhenVisible = () => { if (statsAnimated) return; const stats = $$("[data-count]"); if (!stats.length || stats[0].getBoundingClientRect().top > window.innerHeight - 120) return; statsAnimated = true; stats.forEach(el => { const target = Number(el.dataset.count), duration = 900, start = performance.now(); const tick = now => { const progress = Math.min(1, (now - start) / duration); const eased = 1 - Math.pow(1 - progress, 3); el.textContent = Math.round(target * eased); if (progress < 1) requestAnimationFrame(tick); }; requestAnimationFrame(tick); }); };
+      const initCanvas = () => { const canvas = DOM.canvas, ctx = canvas.getContext("2d"), particles = [], prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches; let width = 0, height = 0, mouse = { x: 0, y: 0 }; const resize = () => { const scale = Math.min(window.devicePixelRatio || 1, 2); width = canvas.width = window.innerWidth * scale; height = canvas.height = window.innerHeight * scale; canvas.style.width = `${window.innerWidth}px`; canvas.style.height = `${window.innerHeight}px`; particles.length = 0; const count = window.innerWidth < 768 ? 34 : 68; for (let i = 0; i < count; i++) particles.push({ x: Math.random() * width, y: Math.random() * height, vx: (Math.random() - 0.5) * 0.28 * scale, vy: (Math.random() - 0.5) * 0.28 * scale, r: (1 + Math.random() * 2.3) * scale }); }; window.addEventListener("resize", resize); resize(); window.addEventListener("pointermove", e => { const scale = Math.min(window.devicePixelRatio || 1, 2); mouse.x = e.clientX * scale; mouse.y = e.clientY * scale; document.documentElement.style.setProperty("--x", `${e.clientX}px`); document.documentElement.style.setProperty("--y", `${e.clientY}px`); }, { passive: true }); const draw = () => { ctx.clearRect(0, 0, width, height); const dark = document.documentElement.classList.contains("dark"); ctx.fillStyle = dark ? "rgba(16,185,129,0.42)" : "rgba(16,185,129,0.34)"; ctx.strokeStyle = dark ? "rgba(16,185,129,0.10)" : "rgba(15,23,42,0.06)"; particles.forEach((p, i) => { if (!prefersReduced) { p.x += p.vx; p.y += p.vy; } if (p.x < 0 || p.x > width) p.vx *= -1; if (p.y < 0 || p.y > height) p.vy *= -1; const dx = p.x - mouse.x, dy = p.y - mouse.y, dist = Math.sqrt(dx * dx + dy * dy); if (dist < 180) { p.x += dx * 0.003; p.y += dy * 0.003; } ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill(); for (let j = i + 1; j < particles.length; j++) { const q = particles[j], lx = p.x - q.x, ly = p.y - q.y, ldist = Math.sqrt(lx * lx + ly * ly); if (ldist < 150) { ctx.globalAlpha = 1 - ldist / 150; ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke(); ctx.globalAlpha = 1; } } }); requestAnimationFrame(draw); }; draw(); };
+      DOM.themeBtn?.addEventListener("click", toggleTheme); DOM.copyEmailHero?.addEventListener("click", copyEmail); DOM.copyEmailContact?.addEventListener("click", copyEmail); DOM.footerCopy?.addEventListener("click", copyEmail); DOM.commandBtn?.addEventListener("click", openCommandPalette); DOM.mobileCommand?.addEventListener("click", () => { closeSheet(DOM.mobileMenu); setTimeout(openCommandPalette, 180); }); DOM.commandInput?.addEventListener("input", renderCommandResults); DOM.menuBtn?.addEventListener("click", () => { DOM.menuBtn.setAttribute("aria-expanded", "true"); openSheet(DOM.mobileMenu); }); DOM.menuClose?.addEventListener("click", () => { DOM.menuBtn.setAttribute("aria-expanded", "false"); closeSheet(DOM.mobileMenu); }); document.querySelectorAll(".mobileNavLink").forEach(link => link.addEventListener("click", () => { DOM.menuBtn.setAttribute("aria-expanded", "false"); closeSheet(DOM.mobileMenu); })); DOM.mobileMenu?.addEventListener("click", e => { if (e.target === DOM.mobileMenu) { DOM.menuBtn.setAttribute("aria-expanded", "false"); closeSheet(DOM.mobileMenu); } }); DOM.modal?.addEventListener("click", e => { if (e.target === DOM.modal) closeSheet(DOM.modal); }); DOM.commandPalette?.addEventListener("click", e => { if (e.target === DOM.commandPalette) closeSheet(DOM.commandPalette); }); DOM.modalClose?.addEventListener("click", () => closeSheet(DOM.modal)); DOM.projectList.addEventListener("click", e => { const item = e.target.closest("li[data-index]"); if (!item) return; const index = Number(item.dataset.index); activeIndex = index; if (isMobile()) openProjectModal(index); else { updatePreview(index); renderProjects(); } }); DOM.projectList.addEventListener("keydown", e => { if (e.key !== "Enter" && e.key !== " ") return; const item = e.target.closest("li[data-index]"); if (!item) return; e.preventDefault(); const index = Number(item.dataset.index); activeIndex = index; if (isMobile()) openProjectModal(index); else { updatePreview(index); renderProjects(); } }); DOM.search.addEventListener("input", filterProjects); DOM.clearSearch.addEventListener("click", () => { DOM.search.value = ""; filterProjects(); DOM.search.focus(); }); window.addEventListener("scroll", handleScroll, { passive: true }); window.addEventListener("resize", renderProjects); window.addEventListener("keydown", e => { const isMac = navigator.platform.toUpperCase().includes("MAC"); const commandPressed = isMac ? e.metaKey : e.ctrlKey; if (commandPressed && e.key.toLowerCase() === "k") { e.preventDefault(); openCommandPalette(); } if (e.key === "Escape") closeAllSheets(); }); DOM.year.textContent = new Date().getFullYear(); initTheme(); renderFilters(); renderProjects(); renderCommandResults(); handleScroll(); initCanvas();
     })();
   </script>
 </body>
-  </html>
+</html>
